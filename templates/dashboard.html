@@ -1,0 +1,18 @@
+{% load static %}
+<html lang="en">
+<head>
+  {% block title %}<title>Dashboard</title>{% endblock %}
+  <link rel="stylesheet" href="{% static 'css/header.css' %}" type="text/css" />
+</head>
+<body>
+  <div>
+  {% block content %}
+   {% if user.is_authenticated %} 
+    <meta http-equiv="REFRESH" content="0;url=http://127.0.0.1:8000/home">
+    {% else %}
+    <p class="temp">User is not authenticated.<br /> Please <a href="{% url 'account_login' %}">Sign In</a> / <a href="{% url 'account_signup' %}">Sign Up</a></p>
+      {% endif %}
+  {% endblock content %}
+  </div>
+</body>
+</html>
