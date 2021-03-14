@@ -1,0 +1,167 @@
+
+html {
+  overflow: hidden;
+  }
+p{
+  margin: 0;
+}
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0rem;
+    transition: all 0.2s 0.7s;
+    overflow: hidden;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+  
+  form.sign-in-form {
+    z-index: 2;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    color: #444;
+    margin-bottom: 10px;
+    position: absolute;
+    left: 50px;
+    top: 0px;
+  }
+
+.login {
+  position: absolute;
+  left: 50px;
+  top: 110px;
+}
+.text {
+  position: absolute;
+  left: 50px;
+  top: 500px;
+  width: 400px;
+}
+.signup-div {
+  position: absolute;
+  left: 250px;
+  top: 40px;
+  font-size: 1.5em;
+}
+.socialaccount_ballot {
+      position: absolute;
+      left: 180px;
+      top: 510px;
+      font-size: 1.5em;
+}
+.socialaccount_ballot > ul{
+  list-style: none;
+}
+  input {
+    width: 400px;
+    background-color: #f0f0f0;
+    margin: 10px 0;
+    height: 55px;
+    border-radius: 55px;
+    display: grid;
+    grid-template-columns: 15% 85%;
+    padding-top: 6.4px;
+    padding-bottom: 6.4px;
+    padding-left: 0.8rem;
+    position: relative;
+    box-shadow: 0 2px 5px  rgba(0, 0, 0, 0.6);
+  }
+  
+  input i {
+    text-align: center;
+    line-height: 55px;
+    color: #acacac;
+    transition: 0.5s;
+    font-size: 1.1rem;
+  }
+  
+   input {
+    background: none;
+    outline: none;
+    border: none;
+    line-height: 1;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #333;
+  }
+  input {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    background-color: #eee;
+  }
+  
+  .no-outline:focus {
+    outline: none;
+  }
+  .input-field input::focus {
+    outline:none;
+    border: 0;
+}
+
+  
+  
+#id_remember {
+  background: none;
+  width: 15px;
+  height: 15px;
+  outline: none;
+  border: none;
+  line-height: 1;
+  font-weight: 100;
+  font-size: 1em;
+  color: #333;
+  display: inline-block;
+}
+
+  .btn {
+    width: 150px;
+    background-color: #ee6654;
+    border: none;
+    outline: none;
+    height: 49px;
+    border-radius: 49px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 30px 0;
+    cursor: pointer;
+    transition: 0.5s;
+    box-shadow: 0 2px 5px  rgba(0, 0, 0, 0.6);
+  }
+  
+  .btn:hover {
+    background-color: #f14b35;
+  }
+  .button {
+    margin-top: 10px;
+  }
+
+  .sign-in-container {
+    position: absolute;
+    display: block;
+    width: 500px;
+    height: 600px;
+    left: 500px;
+    top: 100px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  }
+  .errorlist {
+    list-style: none !important;
+    position: fixed !important;
+    top: 40px;
+    left: 550px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    font-weight: 800;
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.05);
+    background-color: #dc3545;
+  }
+

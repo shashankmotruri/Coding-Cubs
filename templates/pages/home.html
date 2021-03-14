@@ -3,7 +3,15 @@
 <h1>{% block title %}Home{% endblock %}</h1>
 {% block nav-home %}
 
-
+{% if messages %}
+<div>
+  <ul>
+    {% for message in messages %}
+    <li class="msg">{{message}}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
 
 <div class="lp1">            
     <div class="rectangle136"></div>
@@ -15,8 +23,6 @@
         <img src="{% static 'images/undraw_pair_programming_njlp.png' %}" alt="Programming" />
     </div>
 </div>
-
-
 
 
 <div class="lp2">            

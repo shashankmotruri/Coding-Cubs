@@ -103,6 +103,7 @@ transform-origin: center;
 top: 5.00px;
 width: 120px;
 height: 40px;
+top: 25px;
 box-shadow: 0 7px #999;
 }
 .rectangle120:hover {background-color:rgba(255, 137, 35, 0.7) }
@@ -142,6 +143,7 @@ nav[role="full-horizontal"] {
   width: 50%;
   position: absolute;
   left: 25em;
+  bottom: 0px !important;
 }
 nav[role="full-horizontal"] ul {
   width: 100%;
@@ -204,4 +206,33 @@ nav[role="full-horizontal"] ul > li > a {
   color: #fff;
   text-decoration: none;
   font-size: 1em;
+}
+
+
+
+/* message */
+.msg {
+  position: fixed;
+  left: 1250px;
+  top: 100px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.05);
+  background-color: #28a745;
+  animation-name: notify;
+  animation-duration: 3s;
+  opacity: 0;
+  transition: all ease-in-out;
+  -webkit-transition: all ease;
+  -moz-transition: all ease;
+  -ms-transition: all ease;
+  -o-transition: all ease;
+}
+@keyframes notify {
+  0% {opacity: 0;}
+  50% {opacity: 1;}
+  100% {opacity: 0}
 }

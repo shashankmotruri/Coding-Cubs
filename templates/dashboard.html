@@ -3,9 +3,19 @@
 <head>
   {% block title %}<title>Dashboard</title>{% endblock %}
   <link rel="stylesheet" href="{% static 'css/header.css' %}" type="text/css" />
+  <script src="{% static 'js/script.js' %}"></script>
 </head>
 <body>
   <div>
+    {% if messages %}
+    <div>
+      <ul>
+        {% for message in messages %}
+        <li class="msg">{{message}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
   {% block content %}
    {% if user.is_authenticated %} 
     <meta http-equiv="REFRESH" content="0;url=http://127.0.0.1:8000/home">

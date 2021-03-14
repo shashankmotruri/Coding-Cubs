@@ -1,7 +1,12 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
     <title>{% block head_title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/message.css' %}" type="text/css" />
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     {% block extra_head %}
     {% endblock %}
   </head>
@@ -10,27 +15,13 @@
 
     {% if messages %}
     <div>
-      <strong>Messages:</strong>
       <ul>
         {% for message in messages %}
-        <li>{{message}}</li>
+        <li class="msg">{{message}}</li>
         {% endfor %}
       </ul>
     </div>
     {% endif %}
-
-    <div>
-      <strong>Menu:</strong>
-      <ul>
-        {% if user.is_authenticated %}
-        <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
-        <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
-        {% else %}
-        <li><a href="{% url 'account_login' %}">Sign In</a></li>
-        <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
-        {% endif %}
-      </ul>
-    </div>
     {% block content %}
     {% endblock %}
     {% endblock %}
