@@ -1,0 +1,15 @@
+{% extends 'pages/home.html' %}
+
+{% block content %}
+<div class="container">
+    <center>
+        Are you sure you want to add {{ topic }} into your favourites
+
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" >YES</button>
+    </form>
+        <a href="{% url 'explore' %}" class="btn btn-warning" > NO </a>
+    </center>
+</div>
+{% endblock %}

@@ -2,10 +2,12 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block head_title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/login.css' %}" type="text/css" />
     <link rel="stylesheet" href="{% static 'css/signup.css' %}" type="text/css" />
     <link rel="stylesheet" href="{% static 'css/message.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/particles.css' %}" type="text/css" />
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     {% block extra_head %}
     {% endblock %}
@@ -17,7 +19,7 @@
     <div>
       <ul>
         {% for message in messages %}
-        <li class="msg">{{message}}</li>
+        <li class="msg">{{message}}<i class="fa fa-warning" style="font-size:36px;color:red"></i></li>
         {% endfor %}
       </ul>
     </div>
@@ -27,5 +29,8 @@
     {% endblock %}
     {% block extra_body %}
     {% endblock %}
+
+    <script src="{% static 'js/particles.js' %}" type="application/javascript"></script>
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
   </body>
 </html>

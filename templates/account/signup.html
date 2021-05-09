@@ -5,6 +5,10 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
+{% if user.is_authenticated %} 
+<meta http-equiv="REFRESH" content="0;url=http://127.0.0.1:8000/home">
+{% else %}
+<div id="particles-js"></div> 
 <div class="signup-container">
 <h1 class="sign-up-title">{% trans "Sign Up" %}</h1>
 
@@ -19,4 +23,5 @@
   <button type="submit" class="primaryAction btn">{% trans "Sign Up" %} &raquo;</button>
 </form>
 </div>
+{% endif %}
 {% endblock %}

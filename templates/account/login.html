@@ -1,12 +1,16 @@
 {% extends "account/base.html" %}
-
+{% load static %}
 {% load i18n %}
 {% load account socialaccount %}
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
-<div class="sign-in-container">
+{% if user.is_authenticated %} 
+<meta http-equiv="refresh" content="1" />
+{% else %}
+<div id="particles-js"></div> 
+<div class="sign-in-container container animated bounceInDown">
         <h1 class="title">{% trans "Sign In" %}</h1>
 
         {% get_providers as socialaccount_providers %}
@@ -39,5 +43,5 @@
           <button class="primaryAction btn" type="submit">{% trans "Sign In" %}</button>
         </form>
 </div>
-
+{% endif %}
 {% endblock %}

@@ -1,0 +1,214 @@
+.title{
+    font-size:2em;
+    font-family: 'Archivo Black', sans-serif;
+}
+.sub-title{
+font-size:3em;
+font-family: 'Kanit', sans-serif;
+color:gray;
+}
+.btn1{
+    padding:10px 20px;
+    box-shadow:0px 3px 8px -3px rgba(1,1,1,0.5);
+    outline:none;
+    border:0;
+    background:#fff;
+    border-radius:20px;
+    color:#4033ff;
+    font-weight:400;
+    text-align:center;
+    transition:0.5s all ease-in-out;
+    -webkit-transition:0.5s all ease;
+    -moz-transition:0.5s all ease;
+    -ms-transition:0.5s all ease;
+    -o-transition:0.5s all ease;
+}
+.btn1:hover{
+background-color:rgb(180, 205, 255);
+cursor: pointer;
+}
+.inline-photo {
+    transform: translateY(4em) rotateZ(-0deg);
+    transition: transform 4s .25s cubic-bezier(0,1,.3,1),opacity .3s .25s ease-out;
+    will-change: transform, opacity;
+}
+.inline-photo.is-visible {
+opacity: 1;
+transform: rotateZ(-0deg);
+}
+
+
+
+.main{
+    width:100%;
+    height:100vh;
+    background-image:url("https://i.ibb.co/K78xjGh/main-bg.jpg");
+    background-size:100% 100%;
+    margin-top: -1em;
+    }
+    
+    .main table{
+    width:100%;
+    height:100vh;
+    }
+    
+    .main table td{
+    width:50%;
+    }
+    
+    .main table tr td img{
+    width:80%;
+    float:right;
+    height:80%;
+    margin-top:10%;
+    pointer-events:none;
+    --delay: 0s;
+    animation: arrows 4s var(--delay) infinite ease-in;
+    }
+    
+    @keyframes arrows {
+      0%,
+      100% {
+        color: black;
+        transform: translateY(0);
+      }
+      50% {
+        color: #3AB493;
+        transform: translateY(20px);
+      }
+    }
+    
+    .main table td section{
+    margin:5%;
+    color:#fff;
+    }
+    
+    .main table td section .sub-title,.main table td section p{
+    color:rgb(180, 205, 255);
+    }
+    
+    @media (max-width:600px){
+    .main table td{
+    width:100%;
+    display:block;
+    }
+    .main table td section{
+    margin-top:20%;
+    }
+    .main table td img{
+    width:60%;
+    height:60%;
+    margin-top:0%;
+    pointer-events:none;
+    }
+    
+    }
+
+    /* WELCOME TEXT */
+
+.center {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: #c00;
+  position: fixed;
+  display: inline-flex;
+  justify-content: center;
+  font-family: Roboto;
+  font-size: 3em;
+  align-items: center;
+  transition: all 2.5s ease, color 0.3s ease;
+  z-index: 9999999999999;
+  background-color: #000;
+  flex-direction: column;
+}
+/*Sliding Effect*/
+.slider__wrapper {
+  position: relative;
+  width: 50%;
+  margin: 1em auto;
+  padding: 1.5em 2em;
+  transition: all 0.2s ease;
+}
+.slider {
+  position: absolute;
+  width: 1.4em;
+  bottom: 0px;
+  right: 0px;
+  background: #f00;
+  transition: width 0.5s cubic-bezier(1, 0.27, 0, 0.78);
+  box-shadow: 0px 0px 10px 0px #f00;
+  z-index: 999999;
+}
+.slider:after,
+.slider:before {
+  content: "";
+  position: absolute;
+}
+.slider__text {
+  color: #cacaca;
+  font-size: 1.5em;
+  padding-left: 0.5em;
+  opacity: 0;
+  font-family: 'Roboto';
+  font-family: 'Black Ops One';
+}
+
+.signin-signup{
+  position: absolute;
+  top: 20px;
+  left: 1000px;
+}
+
+p.signin-signup > a{
+  color: aliceblue;
+}
+.main-content{
+  position: absolute;
+  top: 200px;
+  line-height: 5em;
+}
+.btn1 {
+  margin-left: 4em;
+}
+@media screen and (max-width: 1300px) {
+.signin-signup{
+  left: 10% !important;
+}
+}
+@media screen and (max-width: 600px) {
+  .main-content{
+    top: 10% !important;
+    transform: scale(0.8);
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    -o-transform: scale(0.8);
+  }
+  .slider__wrapper{
+    left: -20% !important;
+    transform: scale(0.7);
+    -webkit-transform: scale(0.7);
+    -moz-transform: scale(0.7);
+    -ms-transform: scale(0.7);
+    -o-transform: scale(0.7);
+  }
+}
+@media screen and (max-width: 470px) {
+  .main-content{
+    transform: scale(0.7);
+    -webkit-transform: scale(0.7);
+    -moz-transform: scale(0.7);
+    -ms-transform: scale(0.7);
+    -o-transform: scale(0.7);
+  }
+  .slider__wrapper{
+    left: -25% !important;
+    transform: scale(0.6);
+    -webkit-transform: scale(0.6);
+    -moz-transform: scale(0.6);
+    -ms-transform: scale(0.6);
+    -o-transform: scale(0.6);
+}
+}

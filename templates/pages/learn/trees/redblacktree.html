@@ -1,0 +1,222 @@
+{% extends "pages/learn.html" %}
+{% load static %}
+{% block nav-redblacktree %}
+
+<div>
+    <div class="content-div">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#description">Description</a></li>
+            <li><a data-toggle="tab" href="#sources">Sources</a></li>
+        </ul>
+
+        <div class="tab-content ">
+            <div id="description" class="tab-pane fade in active">
+                <h3><strong> Red Black Tree : </strong></h3>
+                A <I>red-black tree</I> is a binary search tree with
+                one extra attribute for each node: the <I>colour</I>,
+                which is either red or black.
+                We also need to keep track of the parent of each node,
+                so that a red-black tree's node structure would
+                be:
+                <FONT COLOR=green><PRE>struct t_red_black_node {
+    enum { red, black } colour;
+    void *item;
+    struct t_red_black_node *left,
+                     *right,
+                     *parent;
+    }
+</PRE></FONT>
+
+                For the purpose of this discussion,
+                the NULL nodes which terminate the tree are considered to
+                be the leaves and are coloured black.
+
+                <H4>Definition of a red-black tree</H4>
+
+                A red-black tree is a binary search tree which has the
+                following <I>red-black properties</I>:
+                <TABLE>
+                    <TR><TD WIDTH="60%">
+                        <OL>
+                            <LI> Every node is either red or black.
+                            <LI> Every leaf (NULL) is black.
+                            <LI> If a node is red, then both its children are black.
+                            <LI> Every simple path from a node to a descendant leaf
+                                contains the same number of black nodes.
+                        </OL>
+                    </TD>
+                        <TD><SMALL>
+                            <OL>
+                                <LI VALUE=3> implies that on any path from the
+                                    root to a leaf, red nodes must not be adjacent.
+                                    <BR>
+                                    However, any number of black nodes may appear in a sequence.
+
+                        </TD></TR>
+                </TABLE>
+                <TABLE>
+                    <TR>
+
+                        <TD><IMG SRC="https://www.cs.auckland.ac.nz/software/AlgAnim/fig/rb_tree1.gif"></TD><TD>A basic red-black tree</TD>
+                    </TR>
+                    <TR>
+                        <TD><IMG SRC=https://www.cs.auckland.ac.nz/software/AlgAnim/fig/rb_tree1a.gif></TD><TD>Basic red-black tree with the
+                        <B>sentinel</B> nodes added.
+                        Implementations of the red-black tree algorithms will usually include
+                        the sentinel nodes as a convenient means of flagging that you have
+                        reached a leaf node.<P>
+                            They are the NULL black nodes of property 2.</TD>
+                    </TR>
+                </TABLE>
+                The number of black nodes on any path from,
+                but not including, a node <B><I>x</I></B> to a leaf is
+                called the <I>black-height</I> of a node,
+                denoted <B>bh(x)</B>.
+
+                We can prove the following lemma:
+                <H5>Lemma</H5>
+                A red-black tree with <B><I>n</I></B> internal nodes has
+                height at most 2<B>log(<I>n</I>+1)</B>.
+                <BR>
+                <I>(For a proof, see Cormen, p 264)</I>
+                <P>
+                    This demonstrates why the red-black tree is a good
+                    search tree: it can always be searched in <B>O(log n)</B> time.
+
+                <P>
+                    As with heaps, additions and deletions from red-black
+                    trees destroy the red-black property, so we need to restore it.
+                    To do this we need to look at some operations on
+                    red-black trees.
+                <H4>Rotations</H4>
+                <CENTER><TABLE>
+                    <TR><TD>
+                        A rotation is a local operation
+                        in a search tree that preserves
+                        <I>in-order</I> traversal key ordering.
+                        <P>
+                            Note that in both trees, an in-order
+                            traversal yields:<P>
+                        <CENTER><PRE>A x B y C</PRE></CENTER>
+                </TD><TD><IMG SRC="https://www.cs.auckland.ac.nz/software/AlgAnim/fig/rb_tree_rot.gif"></TD></TR>
+                </TABLE></CENTER>
+                The left_rotate operation may be encoded:
+                <FONT COLOR=green><PRE>left_rotate( Tree T, node x ) {
+    node y;
+    y = x->right;
+    /* Turn y's left sub-tree into x's right sub-tree */
+    x->right = y->left;
+    if ( y->left != NULL )
+        y->left->parent = x;
+    /* y's new parent was x's parent */
+    y->parent = x->parent;
+    /* Set the parent to point to y instead of x */
+    /* First see whether we're at the root */
+    if ( x->parent == NULL ) T->root = y;
+    else
+        if ( x == (x->parent)->left )
+            /* x was on the left of its parent */
+            x->parent->left = y;
+        else
+            /* x must have been on the right */
+            x->parent->right = y;
+    /* Finally, put x on y's left */
+    y->left = x;
+    x->parent = y;
+    }
+</PRE></FONT>
+
+                <h4>Insertion</H4>
+
+                Insertion is somewhat complex and involves a number
+                of cases.
+                Note that we start by inserting the new node, <TT>x</TT>,
+                in the tree just as we would for any other binary tree,
+                using the <TT>tree_insert</TT> function.
+                This new node is labelled red, and possibly
+                destroys the red-black property.
+                The main loop moves up the tree,
+                restoring the red-black property.
+
+                <FONT COLOR=green><PRE>rb_insert( Tree T, node x ) {
+    /* Insert in the tree in the usual way */
+    tree_insert( T, x );
+    /* Now restore the red-black property */
+    x->colour = red;
+    while ( (x != T->root) && (x->parent->colour == red) ) {
+       if ( x->parent == x->parent->parent->left ) {
+           /* If x's parent is a left, y is x's right 'uncle' */
+           y = x->parent->parent->right;
+           if ( y->colour == red ) {
+               /* case 1 - change the colours */
+               x->parent->colour = black;
+               y->colour = black;
+               x->parent->parent->colour = red;
+               /* Move x up the tree */
+               x = x->parent->parent;
+               }
+           else {
+               /* y is a black node */
+               if ( x == x->parent->right ) {
+                   /* and x is to the right */
+                   /* case 2 - move x up and rotate */
+                   x = x->parent;
+                   left_rotate( T, x );
+                   }
+               /* case 3 */
+               x->parent->colour = black;
+               x->parent->parent->colour = red;
+               right_rotate( T, x->parent->parent );
+               }
+           }
+       else {
+           /* repeat the "if" part with right and left
+              exchanged */
+           }
+       }
+    /* Colour the root black */
+    T->root->colour = black;
+    }
+
+</PRE></FONT>
+            </div>
+            <div id="sources" class="tab-pane fade space-div">
+                <p>
+                    <ul>
+                        <!-- Red Black Tree: -->
+<li><a href="https://www.youtube.com/watch?v=3RQtq7PDHog">red black tree 1</a></li>
+<li><a href="https://www.youtube.com/watch?v=qA02XWRTBdw">red black tree 2</a></li>
+<li><a href="https://www.youtube.com/watch?v=qvZGUFHWChY">red black tree 3</a></li>
+
+                    </ul>
+                </p>
+               
+            </div>
+        </div>
+    </div>
+
+
+    <div class="psuedo-div space-div row" >
+        <h2>Thought of Food : </h2>
+
+        <p>
+            <pre><div class="code">
+    A red-black tree with <B><I>n</I></B> internal nodes has
+    height at most 2<B>log(<I>n</I>+1)</B>.
+                </div>
+            </pre>
+        </p>
+
+    </div>
+
+    <div class="time-div space-div row">
+        <h2>Time Complexity : </h2>
+        <pre>
+        O(n log n)
+            </pre>
+    </div>
+
+</div>
+
+
+{% endblock %}

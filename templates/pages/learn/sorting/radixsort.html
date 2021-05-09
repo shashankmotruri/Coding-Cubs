@@ -1,0 +1,147 @@
+{% extends "pages/learn.html" %}
+{% load static %}
+{% block nav-radixsort %}
+
+<div>
+    <div class="content-div">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#description">Description</a></li>
+            <li><a data-toggle="tab" href="#sources">Sources</a></li>
+        </ul>
+
+        <div class="tab-content ">
+            <div id="description" class="tab-pane fade in active">
+                <h3><strong> Radix Sort : </strong></h3>
+                <p>QuickSort, MergeSort, HeapSort are comparison based sorting algorithms.<br />
+                    CountSort is not comparison based algorithm. It has the complexity of O(n+k), where k is the maximum element of the input array.<br />
+                    So, if k is O(n) ,CountSort becomes linear sorting, which is better than comparison based sorting algorithms that have O(n log n) time complexity. The idea is to extend the CountSort algorithm to get a better time complexity when k goes O(n^2). Here comes the idea of Radix Sort.<br /><br />
+                    <strong>Algorithm</strong>:<br />
+                    For each digit i where i varies from the least significant digit to the most significant digit of a number<br />
+                    Sort input array using countsort algorithm according to ith digit.<br />
+                    <br />We used count sort because it is a stable sort.<br />
+                    <br />
+                    <strong>Example</strong>: Assume the input array is:<br />
+                    10,21,17,34,44,11,654,123<br />
+                    Based on the algorithm, we will sort the input array according to the <strong>one's digit</strong> (least significant digit).<br />
+                    0: 10 <br />
+                    1: 21 11 <br />
+                    2: <br />
+                    3: 123 <br />
+                    4: 34 44 654 <br />
+                    5: <br />
+                    6: <br />
+                    7: 17 <br />
+                    8: <br />
+                    9: <br /><br />
+                    So, the array becomes 10,21,11,123,24,44,654,17<br />
+                    Now, we'll sort according to the <strong>ten's digit</strong>:<br />
+                    0: <br />
+                    1: 10 11 17<br />
+                    2: 21 123<br />
+                    3: 34<br />
+                    4: 44<br />
+                    5: 654<br />
+                    6: <br />
+                    7: <br />
+                    8: <br />
+                    9: <br /><br />
+                    Now, the array becomes : 10,11,17,21,123,34,44,654<br />
+                    Finally , we sort according to the <strong>hundred's digit</strong> (most significant digit):<br />
+                    0: 010 011 017 021 034 044<br />
+                    1: 123<br />
+                    2: <br />
+                    3: <br />
+                    4: <br />
+                    5: <br />
+                    6: 654<br />
+                    7: <br />
+                    8: <br />
+                    9: <br /><br />
+                    The array becomes : 10,11,17,21,34,44,123,654 which is sorted. This is how our algorithm works. <br />
+                    <br />
+                    <strong>Implementation</strong>: <br /></p>
+                <p></p><pre class="prettyprint"><code>void countsort(int arr[],int n,int place)
+{
+        int i,freq[range]={0};         //range for integers is 10 as digits range from 0-9
+        int output[n];
+        for(i=0;i&lt;n;i++)
+                freq[(arr[i]/place)%range]++;
+        for(i=1;i&lt;range;i++)
+                freq[i]+=freq[i-1];
+        for(i=n-1;i&gt;=0;i--)
+        {
+                output[freq[(arr[i]/place)%range]-1]=arr[i];
+                freq[(arr[i]/place)%range]--;
+        }
+        for(i=0;i&lt;n;i++)
+                arr[i]=output[i];
+}
+void radixsort(ll arr[],int n,int maxx)            //maxx is the maximum element in the array
+{
+        int mul=1;
+        while(maxx)
+        {
+                countsort(arr,n,mul);
+                mul*=10;
+                maxx/=10;
+        }
+}
+
+</code></pre>
+                <strong>Complexity Analysis</strong>: <br />
+                The complexity is O((n+b)* log_b(maxx)) where b is the base for representing numbers and maxx is the maximum element of the input array. This is clearly visible as we make (n+b) iterations log_b(maxx) times (number of digits in the maximum element) . If maxx \le n^c,then the complexity can be written as O(n * log_b(n)). <br /><p></p>
+                <p><strong>Advantages</strong> : <br />
+                    1. Fast when the keys are short i.e. when the range of the array elements is less.<br />
+                    2. Used in suffix array constuction algorithms like Manber's algorithm and DC3 algorithm.<br />
+                    <br />
+                    <strong>Disadvantages</strong>:<br />
+                    1. Since Radix Sort depends on digits or letters, Radix Sort is much less flexible than other sorts. Hence , for every different type of data it needs to be rewritten.<br />
+                    2. The constant for Radix sort is greater compared to other sorting algorithms.<br />
+                    3. It takes more space compared to Quicksort which is inplace sorting.<br /><br /></p>
+                <p>The Radix Sort algorithm is an important sorting algorithm that  is integral to suffix -array construction algorithms. It is also useful on parallel machines.</p>
+
+            </div>
+            <div id="sources" class="tab-pane fade space-div">
+                <p>
+                    <ul>
+                        <!-- Radix sort: -->
+<li><a href="https://www.youtube.com/watch?v=Il45xNUHGp0">radix sort 1</a></li>
+<li><a href="https://www.geeksforgeeks.org/radix-sort/">radix sort 2</a></li>
+
+                    </ul>
+                </p>
+               
+            </div>
+        </div>
+    </div>
+
+
+    <div class="psuedo-div space-div row" >
+        <h2>Code : </h2>
+
+        <p>
+            Let's see how to add a node to the linked list:
+        <pre><div class="code">
+void radixsort(arr[],n,maxx)
+    int mul=1
+    while(maxx)
+        countsort(arr,n,mul)
+        mul*=10
+        maxx/=10
+                </div>
+            </pre>
+        </p>
+
+    </div>
+
+    <div class="time-div space-div row">
+        <h2>Time Complexity : </h2>
+        <pre>   
+            O((n+b)* log_b(maxx))
+            </pre>
+    </div>
+
+</div>
+
+
+{% endblock %}

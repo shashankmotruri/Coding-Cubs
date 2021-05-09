@@ -1,0 +1,164 @@
+{% extends "pages/index.html" %}
+{% load static %}
+<h1>{% block title %}Explore{% endblock %}</h1>
+{% block nav-explore %}
+
+  <section class="blocks" id="blocks">
+    <ul>
+      <li>
+            <div class="card">
+            <img class="card-img-top" src="{% static 'images/explore-images/Arrays.png' %}" alt="Card image" width="300px" height="250px">
+            <div class="card-body">
+              <p class="card-text">The Best Articles on Arrays and related topics can be found here.</p>
+              <a href="view_info/?category=Array" class="btn btn-primary">Dive Deeper</a>
+            </div>
+          </div>
+      </li>
+      
+      <li>
+        <div class="card" >
+        <img class="card-img-top" src="{% static 'images/explore-images/Matrix.png' %}" alt="Card image" width="300px" height="250px">
+        <div class="card-body">
+          <p class="card-text">The Best Articles on Matrix and related topics can be found here.</p>
+          <a href="view_info/?category=Matrix" class="btn btn-primary">Dive Deeper</a>
+        </div>
+      </div>
+ 
+      </li>
+    
+      <li>
+        <div class="card" >
+        <img class="card-img-top" src="{% static 'images/explore-images/String.png' %}" alt="Card image" width="300px" height="250px">
+        <div class="card-body">
+          <p class="card-text">The Best Articles on String and related topics can be found here.</p>
+          <a href="view_info/?category=Strings" class="btn btn-primary">Dive Deeper</a>
+        </div>
+        </div>
+      </li>
+      
+    
+      <li>
+        <div class="card" >
+        <img class="card-img-top" src="{% static 'images/explore-images/SearchingandSorting.png' %}" alt="Card image" width="300px" height="250px">
+        <div class="card-body">
+          <p class="card-text">The Best Articles on Searching and sorting and related topics can be found here.</p>
+          <a href="view_info/?category=Searching%20and%20Sorting" class="btn btn-primary">Dive Deeper</a>
+        </div>
+        </div>
+      </li>
+        
+      <li>
+        <div class="card" >
+          <img class="card-img-top" src="{% static 'images/explore-images/LinkedList.png' %}" alt="Card image" width="300px" height="250px">
+        <div class="card-body">
+          <p class="card-text">The Best Articles on Linked List and related topics can be found here.</p>
+          <a href="view_info/?category=LinkedList" class="btn btn-primary">Dive Deeper</a>
+        </div>
+        </div>
+      </li>
+    
+      
+    <li>
+        <div class="card" >
+          <img class="card-img-top" src="{% static 'images/explore-images/BinaryTree.png' %}" alt="Card image" width="300px" height="250px">
+        <div class="card-body">
+          <p class="card-text">The Best Articles on Binary Tree and related topics can be found here.</p>
+          <a href="view_info/?category=Binary%20Trees" class="btn btn-primary">Dive Deeper</a>
+        </div>
+      </div>
+    </li>
+        
+    <li>
+        <div class="card" >
+          <img class="card-img-top" src="{% static 'images/explore-images/BinarySearchTree.png' %}" alt="Card image" width="300px" height="250px">
+        <div class="card-body">
+          <p class="card-text">The Best Articles on Binary Search Tree and related topics can be found here.</p>
+          <a href="view_info/?category=Binary%20Search%20Trees" class="btn btn-primary">Dive Deeper</a>
+        </div>
+      </div>
+    </li>
+        
+    <li>
+        <div class="card" >
+          <img class="card-img-top" src="{% static 'images/explore-images/Greedy.png' %}" alt="Card image" width="300px" height="250px">
+        <div class="card-body">
+          <p class="card-text">The Best Articles on Greedy and related topics can be found here.</p>
+          <a href="view_info/?category=Greedy" class="btn btn-primary">Dive Deeper</a>
+        </div>
+      </div>
+    </li>
+        
+    <li>
+        <div class="card" >
+          <img class="card-img-top" src="{% static 'images/explore-images/BackTracking.png' %}" alt="Card image" width="300px" height="250px">
+        <div class="card-body">
+          <p class="card-text">The Best Articles on BackTracking and related topics can be found here.</p>
+          <a href="view_info/?category=BackTracking" class="btn btn-primary">Dive Deeper</a>
+        </div>
+      </div>
+    </li>
+        
+    <li>
+        <div class="card" >
+          <img class="card-img-top" src="{% static 'images/explore-images/stacksandqueues.png' %}" alt="Card image" width="300px" height="250px">
+        <div class="card-body">
+          <p class="card-text">The Best Articles on Stacks and Queues and related topics can be found here.</p>
+          <a href="view_info/?category=Stacks%20&%20Queues" class="btn btn-primary">Dive Deeper</a>
+        </div>
+      </div>
+    </li>
+        
+    <li>
+        <div class="card" >
+          <img class="card-img-top" src="{% static 'images/explore-images/Heaps.png' %}" alt="Card image" width="300px" height="250px">
+        <div class="card-body">
+          <p class="card-text">The Best Articles on Heaps and related topics can be found here.</p>
+          <a href="view_info/?category=Heap" class="btn btn-primary">Dive Deeper</a>
+        </div>
+      </div>
+    </li>
+
+    <li>
+        <div class="card" >
+          <img class="card-img-top" src="{% static 'images/explore-images/Graphs.png' %}" alt="Card image" width="300px" height="250px">
+        <div class="card-body">
+          <p class="card-text">The Best Articles on Graphs and related topics can be found here.</p>
+          <a href="view_info/?category=Graph" class="btn btn-primary">Dive Deeper</a>
+        </div>
+      </div>
+
+    </li>
+        
+    <li>
+        <div class="card" >
+          <img class="card-img-top" src="{% static 'images/explore-images/Trie.png' %}" alt="Card image" width="300px" height="250px">
+        <div class="card-body">
+          <p class="card-text">The Best Articles on Trie and related topics can be found here.</p>
+          <a href="view_info/?category=Trie" class="btn btn-primary">Dive Deeper</a>
+        </div>
+        </div>
+    </li>
+
+    <li>
+        <div class="card" >
+          <img class="card-img-top" src="{% static 'images/explore-images/DynamicProgramming.png' %}" alt="Card image" width="300px" height="250px">
+        <div class="card-body">
+          <p class="card-text">The Best Articles on Dynamic Programming and related topics can be found here.</p>
+          <a href="view_info/?category=Dynamic%20Programming" class="btn btn-primary">Dive Deeper</a>
+        </div>
+      </div>
+      </li>
+      <li>
+        <div class="card" >
+          <img class="card-img-top" src="{% static 'images/explore-images/BitManipulation.png' %}" alt="Card image" width="300px" height="250px">
+        <div class="card-body">
+          <p class="card-text">The Best Articles on Bit Manipulation and related topics can be found here.</p>
+          <a href="/view_info/?category=Bit%20Manipulation" class="btn btn-primary">Dive Deeper</a>
+        </div>
+        </div>
+        </li>
+    </ul>
+  </section>
+
+{% endblock %}
+

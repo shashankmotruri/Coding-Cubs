@@ -1,0 +1,187 @@
+{% extends "pages/learn.html" %}
+{% load static %}
+{% block nav-binarysearchtree %}
+
+<div>
+    <div class="content-div">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#description">Description</a></li>
+            <li><a data-toggle="tab" href="#sources">Sources</a></li>
+        </ul>
+
+        <div class="tab-content ">
+            <div id="description" class="tab-pane fade in active">
+                <h3><strong> Binary Search Tree : </strong></h3>
+                <p>For a binary tree to be a binary search tree, the data of all the nodes in the left sub-tree of the root node should be < the data of the root. The data of all the nodes in the right subtree of the root node should be > the data of the root.  </p>
+                <p><strong>Example</strong></p>
+                <p><img alt="enter image description here" src="https://he-s3.s3.amazonaws.com/media/uploads/fe0eac0.png" /></p>
+                <p>In Fig. 1, consider the root node with data = 10.  </p>
+                <ul>
+                    <li>Data in the left subtree is: [5, 1, 6]    </li>
+                    <li>All data elements are < 10</li>
+                    <li>Data in the right subtree is: [19, 17]</li>
+                    <li>All data elements are > 10</li>
+                </ul>
+                <p>Also, considering the root node with data = 5, its children also satisfy the specified ordering. Similarly, the root node with data = 19 also satisfies this ordering. When recursive, all subtrees satisfy the left and right subtree ordering. </p>
+                <p>The tree is known as a Binary Search Tree or BST.  </p>
+                <p><strong>Traversing the tree</strong> </p>
+                <p>There are mainly <em>three</em> types of tree traversals. </p>
+                <p><strong><em>Pre-order traversal</em></strong></p>
+                <p>In this traversal technique the traversal order is root-left-right i.e.</p>
+                <ul>
+                    <li>Process data of root node</li>
+                    <li>First, traverse left subtree completely </li>
+                    <li>Then, traverse right subtree</li>
+                </ul>
+                <pre class="prettyprint"><code>    void perorder(struct node*root)
+    {
+        if(root)
+        {
+            printf("%d ",root-&gt;data);    //Printf root-&gt;data
+            preorder(root-&gt;left);    //Go to left subtree
+            preorder(root-&gt;right);     //Go to right subtree
+        }
+    }
+</code></pre>
+                <p><strong>Post-order traversal</strong></p>
+                <p>In this traversal technique the traversal order is left-right-root.</p>
+                <ul>
+                    <li>Process data of left subtree</li>
+                    <li>First, traverse right subtree</li>
+                    <li>Then, traverse root node</li>
+                </ul>
+                <pre class="prettyprint"><code>    void postorder(struct node*root)
+    {
+        if(root)
+        {
+            postorder(root-&gt;left);    //Go to left sub tree
+            postorder(root-&gt;right);     //Go to right sub tree
+            printf("%d ",root-&gt;data);    //Printf root-&gt;data
+        }
+    }
+</code></pre>
+                <p><strong>In-order traversal</strong></p>
+                <p>In in-order traversal, do the following:  </p>
+                <ul>
+                    <li>First process left subtree (before processing root node) </li>
+                    <li>Then, process current root node</li>
+                    <li>Process right subtree </li>
+                </ul>
+                <pre class="prettyprint"><code>    void inorder(struct node*root)
+    {
+        if(root)
+        {
+            inorder(root-&gt;left);    //Go to left subtree
+            printf("%d ",root-&gt;data);    //Printf root-&gt;data
+            inorder(root-&gt;right);     //Go to right subtree
+        }
+    }
+</code></pre>
+                <p>Consider the in-order traversal of a sample BST  </p>
+                <ul>
+                    <li>The 'inorder( )' procedure is called with root equal to node with data = 10  </li>
+                    <li>Since the node has a left subtree, 'inorder( )' is called with root equal to node with data = 5</li>
+                    <li>Again, the node has a left subtree, so 'inorder( )' is called with root = 1</li>
+                </ul>
+                <p>The function call stack is as follows:</p>
+                <p><img alt="enter image description here" src="https://he-s3.s3.amazonaws.com/media/uploads/4114e6c.png" /></p>
+                <ul>
+                    <li>Node with data = 1 does not have a left subtree. Hence, this node is processed.  </li>
+                    <li>Node with data = 1 does not have a right subtree. Hence, nothing is done.  </li>
+                    <li><code>inorder(1)</code> gets completed and this function call is popped from the call stack.  </li>
+                </ul>
+                <p>The stack is as follows:</p>
+                <p><img alt="enter image description here" src="https://he-s3.s3.amazonaws.com/media/uploads/3855c80.png" /></p>
+                <ul>
+                    <li>Left subtree of node with data = 5 is completely processed. Hence, this node gets processed.  </li>
+                    <li>Right subtree of this node with data = 5 is non-empty. Hence, the right subtree gets processed now. 'inorder(6)' is then called.  </li>
+                </ul>
+                <p><strong>Note</strong></p>
+                <p>'inorder(6)' is only equivalent to saying inorder(pointer to node with data = 6). The notation has been used for brevity.  </p>
+                <p>The function call stack is as follows:</p>
+                <p><img alt="enter image description here" src="https://he-s3.s3.amazonaws.com/media/uploads/4ddbcd1.png" /></p>
+                <p>Again, the node with data = 6 has no left subtree, Therefore, it can be processed and it also has no right subtree. 'inorder(6)' is then completed.   </p>
+                <p><img alt="enter image description here" src="https://he-s3.s3.amazonaws.com/media/uploads/576522b.png" /></p>
+                <p>Both the left and right subtrees of node with data = 5 have been completely processed. Hence, <code>inorder(5)</code> is then completed.  </p>
+                <p><img alt="enter image description here" src="https://he-s3.s3.amazonaws.com/media/uploads/5dcbe09.png" /></p>
+                <ul>
+                    <li>Now, node with data = 10 is processed</li>
+                    <li>Right subtree of this node gets processed in a similar way as described until step 10</li>
+                    <li>After right subtree of this node is completely processed, entire traversal of the BST is complete</li>
+                </ul>
+                <p>The order in which BST in Fig. 1 is visited is: 1, 5, 6, 10, 17, 19. The in-order traversal of a BST gives a sorted ordering of the data elements that are present in the BST. This is an important property of a BST.</p>
+                <p><strong>Insertion in BST</strong></p>
+                <p>Consider the insertion of data = 20 in the BST.</p>
+                <p><em>Algorithm</em></p>
+                <p>Compare data of the root node and element to be inserted.  </p>
+                <ol>
+                    <li>If the data of the root node is greater, and if a left subtree exists, then repeat step 1 with root = root of left subtree. Else, insert element as left child of current root.   </li>
+                    <li>If the data of the root node is greater, and if a right subtree exists, then repeat step 2 with root = root of right subtree. Else, insert element as right child of current root.   </li>
+                </ol>
+                <p><em>Implementation</em> </p>
+                <pre class="prettyprint"><code>    struct node* insert(struct node* root, int data)
+    {
+        if (root == NULL)    //If the tree is empty, return a new,single node
+            return newNode(data);
+        else
+        {
+            //Otherwise, recur down the tree
+            if (data &lt;= root-&gt;data)
+                root-&gt;left  = insert(root-&gt;left, data);
+            else
+                root-&gt;right = insert(root-&gt;right, data);
+            //return the (unchanged) root pointer
+            return root;
+        }
+    }
+</code></pre>
+
+            </div>
+            <div id="sources" class="tab-pane fade space-div">
+                <p>
+                    <!-- Binary Search Tree: -->
+<li><a href="https://www.youtube.com/watch?v=cySVml6e_Fc">binary search tree 1</a></li>
+<li><a href="https://www.youtube.com/watch?v=V97oYgN9cIE">binary search tree 2</a></li>
+<li><a href="https://www.tutorialspoint.com/data_structures_algorithms/binary_search_tree.htm">binary search tree 3</a></li>
+<li><a href="https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/">binary search tree 4</a></li>
+<li><a href="https://www.geeksforgeeks.org/binary-search-tree-set-2-delete/">binary search tree 5</a></li>
+
+                </p>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="psuedo-div space-div row" >
+        <h2>Code : </h2>
+
+        <p>
+        <pre><div class="code">
+BST(x){
+
+    if ( x < parent[x] )
+        return nil
+
+    if( parent[x] < x )
+
+    return parent[x] // parent[x] = y
+}
+                </div>
+            </pre>
+        </p>
+
+    </div>
+
+    <div class="time-div space-div row">
+        <h2>Complexity : </h2>
+        <pre>
+            Time Complexity : O(n)
+            Space Complexity : O(n)    
+            </pre>
+    </div>
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "pages/learn.html" %}
+{% load static %}
+{% block nav-floyd_warshall %}
+
+<div>
+    <div class="content-div">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#description">Description</a></li>
+            <li><a data-toggle="tab" href="#sources">Sources</a></li>
+        </ul>
+
+        <div class="tab-content ">
+            <div id="description" class="tab-pane fade in active">
+                <h3><strong>Floyd Warshall : </strong></h3>
+                <p>FloydWarshall's Algorithm is used to find the shortest paths between between all pairs of vertices in a graph, where each edge in the graph has a weight which is positive or negative. The biggest advantage of using this algorithm is that all the shortest distances between any 2 vertices could be calculated in O(V ^ 3), where V is the number of vertices in a graph.  </p>
+                <p><strong>The Algorithm Steps:</strong> </p>
+                <p>For a graph with N vertices:</p>
+                <ul>
+                    <li>Initialize the shortest paths between any 2 vertices with Infinity.  </li>
+                    <li>Find all pair shortest paths that use 0 intermediate vertices, then find the shortest paths that use 1 intermediate vertex and so on.. until using all N vertices as intermediate nodes.  </li>
+                    <li>Minimize the shortest paths between any 2 pairs in the previous operation.   </li>
+                    <li>For any 2 vertices (i , j) , one should actually minimize the distances between this pair using the first K nodes, so the shortest path will be: min (dist[i][k] + dist[k][j] , dist[i][j]). </li>
+                </ul>
+                <p>dist[i][k] represents the shortest path that only uses the first K vertices, dist[k][j] represents the shortest path between the pair k, j. As the shortest path will be a concatenation of the shortest path from i to k, then from k to j.  </p>
+                <pre class="prettyprint"><code>for(int k = 1; k &lt;= n; k++){
+    for(int i = 1; i &lt;= n; i++){
+        for(int j = 1; j &lt;= n; j++){
+            dist[i][j] = min( dist[i][j], dist[i][k] + dist[k][j] );
+        }
+    }
+}
+</code></pre>
+                <p>Time Complexity of FloydWarshall's Algorithm is O(V ^ 3), where V is the number of vertices in a graph.</p>
+            </div>
+            <div id="sources" class="tab-pane fade space-div">
+                <ul>
+                    
+<!-- Floyd Warshall: -->
+<li><a href="https://www.youtube.com/watch?v=Gc4mWrmJBsw">floyd warshall 1</a></li>
+<li><a href="https://www.geeksforgeeks.org/floyd-warshall-algorithm-dp-16/">floyd warshall 2</a></li>
+<li><a href="https://www.programiz.com/dsa/floyd-warshall-algorithm">floyd warshall 3</a></li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="psuedo-div space-div row" >
+        <h2>Code : </h2>
+        <p>
+        <strong>Floyd Warshall Pseudocode : </strong>
+    </p>
+        <pre class="prettyprint"><code>
+    for(int k = 1; k &lt;= n; k++){
+        for(int i = 1; i &lt;= n; i++){
+            for(int j = 1; j &lt;= n; j++){
+                dist[i][j] = min( dist[i][j], dist[i][k] + dist[k][j] );
+            }
+        }
+    }
+        </code></pre>
+
+    </div>
+
+    <div class="time-div space-div row">
+        <h2>Time Complexity : </h2>
+        <pre>   
+        O(V ^ 3), where V is the number of vertices in a graph.
+            </pre>
+    </div>
+
+</div>
+
+
+{% endblock %}

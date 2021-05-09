@@ -1,0 +1,19 @@
+{% extends 'pages/practice/practice.html' %}
+{% load get_id %}
+{% block content %}
+{% load static %}
+{% include 'pages/index.html' %}
+<div class="container">
+
+    {% for row in content %}
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse{{row.0}}">
+       Show
+        </button>
+        <div class="collapse" id="collapse{{row.0}}">
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+        </div>
+    
+    {% endfor %}
+</div>
+
+{% endblock %}

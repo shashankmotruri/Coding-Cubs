@@ -1,0 +1,22 @@
+{% extends 'pages/explore/explore_page.html' %}
+{% load get_id_from_dict %}
+{% load static %}
+{% block content %}
+{% include 'pages/index.html' %}
+<div id="readarticle-container" style="display: none;">
+    {% for key , item in content.items %}  
+      <section class="center mw5 mw7-ns">
+            <article class="serif f4 lh-copy">
+                {% if 'topic' == key %} <h1 class="sans-serif lh-title">{{item}}</h1>{% endif %}</h1>
+                {% if 'category' == key %} <h2 class="sans-serif"><strong>Category</strong> : {{item}}</h2>{% endif %}
+                {% if 'source' == key %} <h2 class="sans-serif"><strong>Source</strong> : {{item}}</h2>{% endif %}
+                {% if 'description' == key %}<p> {{ item|linebreaks }} </p> {% endif %}
+            </article>
+        </section>
+    {% endfor %}
+    <center>
+        <a href="/favourites/?id2={{ content | get_id_from_dict }} " class="btn btn-warning"> Add to Favourites </a>
+    </center>
+
+</div>
+{% endblock %}

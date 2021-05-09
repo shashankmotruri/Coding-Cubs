@@ -1,0 +1,143 @@
+{% extends "pages/learn.html" %}
+{% load static %}
+{% block nav-binarytree %}
+
+<div>
+    <div class="content-div">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#description">Description</a></li>
+            <li><a data-toggle="tab" href="#sources">Sources</a></li>
+        </ul>
+
+        <div class="tab-content ">
+            <div id="description" class="tab-pane fade in active">
+                <h3><strong> Binary Tree : </strong></h3>
+                <p>A binary tree is a structure comprising nodes, where each node has the following 3 components:  </p>
+                <ol>
+                    <li>Data element: Stores any kind of data in the node</li>
+                    <li>Left pointer: Points to the tree on the left side of node</li>
+                    <li>Right pointer: Points to the tree on the right side of the node</li>
+                </ol>
+                <p>As the name suggests, the <strong>data</strong> element stores any kind of data in the node.<br />
+                    The <strong>left</strong> and <strong>right</strong> pointers point to binary trees on the left and right side of the node respectively. </p>
+                <p>If a tree is empty, it is represented by a <strong>null</strong> pointer.  </p>
+                <p>The following image explains the various components of a tree. </p>
+                <p><img alt="enter image description here" src="https://he-s3.s3.amazonaws.com/media/uploads/1d388c1.png" /></p>
+                <p><strong>Commonly-used terminologies</strong></p>
+                <ul>
+                    <li><strong>Root</strong>: Top node in a tree</li>
+                    <li><strong>Child</strong>: Nodes that are next to each other and connected downwards</li>
+                    <li><strong>Parent</strong>: Converse notion of child</li>
+                    <li><strong>Siblings</strong>: Nodes with the same parent</li>
+                    <li><strong>Descendant</strong>: Node reachable by repeated proceeding from parent to child</li>
+                    <li><strong>Ancestor</strong>: Node reachable by repeated proceeding from child to parent.</li>
+                    <li><strong>Leaf</strong>: Node with no children</li>
+                    <li><strong>Internal node</strong>: Node with at least one child</li>
+                    <li><strong>External node</strong>: Node with no children</li>
+                </ul>
+                <p><strong>Structure code of a tree node</strong></p>
+                <p>In programming, trees are declared as follows:
+                </p><pre class="prettyprint"><code>    struct node
+    {
+         int data;                 //Data element
+         struct node * left;          //Pointer to left node
+         struct node * right;         //Pointer to right node
+    };
+</code></pre><p></p>
+                <p><strong><em>Creating nodes</em></strong></p>
+                <p><em>Simple node</em></p>
+                <pre class="prettyprint"><code>    struct node root;
+</code></pre>
+                <p><em>Pointer to a node</em></p>
+                <pre class="prettyprint"><code>    struct node * root;
+    root=(node * )malloc(sizeof(node));
+</code></pre>
+                <p>In this case, you must explicitly allocate the memory of the node type to the pointer (preferred method).</p>
+                <p><em>Utility function returning node</em></p>
+                <pre class="prettyprint"><code>    struct node * newnode(int element)
+    {
+        struct node * temp=(node * )malloc(sizeof(node));
+        temp-&gt;data=element;
+        temp-&gt;left=temp-&gt;right=NULL;
+        return temp;
+    }
+</code></pre>
+                <p><strong>Maximum depth/height of a tree</strong></p>
+                <p>The idea is to do a post-order traversal and maintain two variables to store the left depth and right depth and return max of both the depths.</p>
+                <pre class="prettyprint"><code>    int maxDepth(struct node* node)
+    {
+        if (node==NULL)
+            return 0;
+        else
+        {
+             /* compute the depth of each subtree */
+              int lDepth = maxDepth(node-&gt;left);
+              int rDepth = maxDepth(node-&gt;right);
+
+              /* use the larger one */
+              if (lDepth &gt; rDepth)
+                    return(lDepth+1);
+              else
+                   return(rDepth+1);
+       }
+    }
+</code></pre>
+                <p><strong>Time complexity</strong></p>
+                <p>O(n)</p>
+                <p><strong>Application of trees</strong></p>
+                <ol>
+                    <li>a Manipulate hierarchical data</li>
+                    <li>Make information easy to search (see tree traversal)</li>
+                    <li>Manipulate sorted lists of data</li>
+                    <li>Use as a workflow for compositing digital images for visual effects</li>
+                    <li>Use in router algorithms</li>
+                </ol>
+            </div>
+            <div id="sources" class="tab-pane fade space-div">
+                <p>
+                    <ul>
+                        
+<!-- Binary Tree: -->
+<li><a href="https://www.youtube.com/watch?v=vvey2QCs98o">binary tree 1</a></li>
+<li><a href="https://www.youtube.com/watch?v=H5JubkIy_p8">binary tree 2</a></li>
+<li><a href="https://www.geeksforgeeks.org/binary-tree-data-structure/">binary tree 3</a></li>
+
+                    </ul>
+                </p>
+                
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="psuedo-div space-div row" >
+        <h2>Code : </h2>
+
+        <p>
+            Let's see how to add a node to the linked list:
+        <pre><div class="code">def insertAtbegning(self,value):
+            newNode = Node(value)
+            if self.firstNode != None:
+            newNode.link = self.firstNode
+            self.firstNode = newNode
+            else:
+            self.firstNode = newNode
+                </div>
+            </pre>
+        </p>
+
+    </div>
+
+    <div class="time-div space-div row">
+        <h2>Complexity : </h2>
+        <pre>
+            Time Complexity : O(n)
+            Space Complexity : O(n)    
+        </pre>
+    </div>
+
+</div>
+
+
+{% endblock %}

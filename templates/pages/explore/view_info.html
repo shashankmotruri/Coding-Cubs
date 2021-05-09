@@ -1,0 +1,24 @@
+{% extends 'pages/explore/explore_page.html' %}
+{% load get_id %}
+{% block content %}
+{% load static %}
+{% include 'pages/index.html' %}
+<div id="viewinfo-container">
+    <ul>
+        {% for row in content %}
+        <li style="list-style:none">
+            <div class="view-card">
+                <details class="info">
+                  <summary>{{row.1}}  <a class="btn btn-primary" type="button" href="/read_article/?id={{ row | get_id }}"> Read Article </a></summary>
+                  <p><strong> Category : </strong> {{row.2}}</p>
+                </details>
+             </div>
+            <br />
+        </li>
+        {% endfor %}
+
+    </ul>
+
+</div>
+
+{% endblock %}

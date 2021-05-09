@@ -1,0 +1,107 @@
+{% extends "pages/learn.html" %}
+{% load static %}
+{% block nav-heapsort %}
+
+<div>
+    <div class="content-div">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#description">Description</a></li>
+            <li><a data-toggle="tab" href="#sources">Sources</a></li>
+        </ul>
+
+        <div class="tab-content ">
+            <div id="description" class="tab-pane fade in active">
+                <h3><strong> Heap Sort : </strong></h3>
+                <p>Heaps can be used in sorting an array. In max-heaps, maximum element will always be at the root. Heap Sort uses this property of heap to sort the array.</p>
+                <p>Consider an array  Arr  which is to be sorted using Heap Sort.</p>
+                <ul>
+                    <li>Initially build a max heap of elements in  Arr .</li>
+                    <li>The root element, that is Arr[1], will contain maximum element of
+                         Arr . After that, swap this element with the last element of  Arr  and
+                        heapify the max heap excluding the last element which is already in
+                        its correct position and then decrease the length of heap by one.</li>
+                    <li>Repeat the step 2, until all the elements are in their correct
+                        position.</li>
+                </ul>
+                <p><strong>Implementation:</strong>
+                    <code></code></p><pre class="prettyprint"><code>    void heap_sort(int Arr[ ])<br />
+    {
+        int heap_size = N;<br />
+        build_maxheap(Arr);
+        for(int i = N; i &gt;= 2 ; i-- )
+        {
+            swap|(Arr[ 1 ], Arr[ i ]);
+            heap_size = heap_size - 1;
+            max_heapify(Arr, 1, heap_size);
+        }
+    }
+ </code></pre><p></p>
+                <p><strong>Complexity:</strong> <br />
+                    max_heapify has complexity  O(logN) , build_maxheap has complexity O(N) and we run max_heapify N-1 times in heap_sort function, therefore complexity of heap_sort function is O(NlogN).   </p>
+                <p><strong>Example:</strong><br />
+                    In the diagram below,initially there is an unsorted array Arr having 6 elements and then max-heap will be built. </p>
+                <p><img width="680" alt="enter image description here" src="https://he-s3.s3.amazonaws.com/media/uploads/c9fa843.png" /></p>
+                <p>After building max-heap, the elements in the array Arr will be: </p>
+                <p><img width="680" alt="enter image description here" src="https://he-s3.s3.amazonaws.com/media/uploads/dbe3d72.png" /></p>
+                <p>Step 1: 8 is swapped with 5.<br />
+                    Step 2: 8 is disconnected from heap as 8 is in correct position now and.<br />
+                    Step 3: Max-heap is created and 7 is swapped with 3.<br />
+                    Step 4: 7 is disconnected from heap.<br />
+                    Step 5: Max heap is created and 5 is swapped with 1.<br />
+                    Step 6: 5 is disconnected from heap.<br />
+                    Step 7: Max heap is created and 4 is swapped with 3.<br />
+                    Step 8: 4 is disconnected from heap.<br />
+                    Step 9: Max heap is created and 3 is swapped with 1.<br />
+                    Step 10: 3 is disconnected.  </p>
+                <p><img width="680" alt="enter image description here" src="https://he-s3.s3.amazonaws.com/media/uploads/e9d6f12.png" /></p>
+                <p>After all the steps, we will get a sorted array.</p>
+                <p><img width="680" alt="enter image description here" src="https://he-s3.s3.amazonaws.com/media/uploads/e0a7b19.png" /></p>
+
+            </div>
+            <div id="sources" class="tab-pane fade space-div">
+                <p>
+                    <ul>
+                        
+<!-- Heap Sort: -->
+<li><a href="https://www.youtube.com/watch?v=HqPJF2L5h9U">heap sort 1</a></li>
+<li><a href="https://www.geeksforgeeks.org/heap-sort/">heap sort 2</a></li>
+<li><a href="https://www.youtube.com/watch?v=MtQL_ll5KhQ">heap sort 3</a></li>
+
+                    </ul>
+                </p>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="psuedo-div space-div row" >
+        <h2>Code : </h2>
+
+        <p>
+        <pre><div class="code">
+procedure heapsort(a, count) is
+    input: an unordered array a of length count
+    heapify(a, count)
+    end ← count - 1
+    while end > 0 do
+        swap(a[end], a[0])
+        end ← end - 1
+        siftDown(a, 0, end)        </div>
+            </pre>
+        </p>
+
+    </div>
+
+    <div class="time-div space-div row">
+        <h2>Time Complexity : </h2>
+        <pre>    
+max_heapify has complexity  O(logN) , build_maxheap has complexity O(N)
+        totaly => O(NlogN)
+            </pre>
+    </div>
+
+</div>
+
+
+{% endblock %}

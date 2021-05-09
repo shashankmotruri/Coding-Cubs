@@ -1,0 +1,335 @@
+@media only screen and (max-width: 1000px){
+  .toggle {
+    left: 450px;
+  }
+    .checkbtn{
+      display: block;
+      left: -400px;
+    }
+  
+    #check:checked ~ ul{
+      top: 80px;
+    }
+    .switch-container {
+        left: -850px;
+        right: 0px;
+        bottom: 0px;
+        top: -320px;
+    }
+    .logout-container {
+        top: 245px;
+        left: -390px;
+        right: 600px;
+    }
+    .headingDiv {
+      top: 100px !important;
+      transform: scale(0.8) !important;
+      left: 0px !important;
+      -webkit-transform: scale(0.8) !important;
+      -moz-transform: scale(0.8) !important;
+      -ms-transform: scale(0.8) !important;
+      -o-transform: scale(0.8) !important;
+    }
+    .undrawpairprogrammingnjlp {
+      left: 80px !important;
+      top: 350px !important;
+      transform: scale(0.8) !important;
+      -webkit-transform: scale(0.8) !important;
+      -moz-transform: scale(0.8) !important;
+      -ms-transform: scale(0.8) !important;
+      -o-transform: scale(0.8) !important;
+    }
+    .undrawaboutmewa29{
+      top: 0 !important;
+      left: 80px !important;
+      transform: scale(0.8) !important;
+      -webkit-transform: scale(0.8) !important;
+      -moz-transform: scale(0.8) !important;
+      -ms-transform: scale(0.8) !important;
+      -o-transform: scale(0.8) !important;
+    }
+    .headingTxt{
+      top: 400 !important;
+      transform: scale(0.8) !important;
+      left: 150px !important;
+      -webkit-transform: scale(0.8) !important;
+      -moz-transform: scale(0.8) !important;
+      -ms-transform: scale(0.8) !important;
+      -o-transform: scale(0.8) !important;
+    }
+    .exploreContainer {
+      left: -200px !important;
+      transform: scale(0.7);
+      top: -100px !important;
+      -webkit-transform: scale(0.7);
+      -moz-transform: scale(0.7);
+      -ms-transform: scale(0.7);
+      -o-transform: scale(0.7);
+}
+    .group362 {
+      left: 0px !important;
+      top: 10px !important;
+      transform: scale(0.8);
+    }
+    .group361 {
+      left: 0px !important;
+      transform: scale(0.8);
+    }
+    .group360 {
+      left: 450px !important;
+      transform: scale(0.8);
+    }
+    .learnContainer{
+      left: 80px !important;
+      transform: scale(0.7);
+      top: -100px !important;
+      -webkit-transform: scale(0.7);
+      -moz-transform: scale(0.7);
+      -ms-transform: scale(0.7);
+      -o-transform: scale(0.7);
+    }
+    .practiceContainer{
+      left: 350px !important;
+      transform: scale(0.7);
+      top: -100px !important;
+      -webkit-transform: scale(0.7);
+      -moz-transform: scale(0.7);
+      -ms-transform: scale(0.7);
+      -o-transform: scale(0.7);
+    }
+
+    .undrawsocialnetworkingnqk4{
+      left: 0px !important;
+      top: -100px !important;
+      transform: scale(0.6) !important;
+      -webkit-transform: scale(0.6) !important;
+      -moz-transform: scale(0.6) !important;
+      -ms-transform: scale(0.6) !important;
+      -o-transform: scale(0.6) !important;
+}
+    .group356 {
+      left: 50px !important;
+      top: 300px !important;
+      transform: scale(0.8) !important;
+      -webkit-transform: scale(0.8) !important;
+      -moz-transform: scale(0.8) !important;
+      -ms-transform: scale(0.8) !important;
+      -o-transform: scale(0.8) !important;
+      }
+      .msg {
+        left: 50% !important;
+      }
+}
+
+@media only screen and (max-width: 680px){
+  .toggle {
+    left: 350px;
+  }
+  .checkbtn {
+   left: -650px;
+    }
+  
+    .headingDiv {
+      left: -80px !important;
+      transform: scale(0.6) !important;
+      -webkit-transform: scale(0.6) !important;
+      -moz-transform: scale(0.6) !important;
+      -ms-transform: scale(0.6) !important;
+      -o-transform: scale(0.6) !important;
+    }
+    .undrawpairprogrammingnjlp {
+      left: -30px !important;
+      transform: scale(0.6) !important;
+      -webkit-transform: scale(0.6) !important;
+      -moz-transform: scale(0.6) !important;
+      -ms-transform: scale(0.6) !important;
+      -o-transform: scale(0.6) !important;
+    }
+    .undrawaboutmewa29{
+      left: -20px !important;
+      transform: scale(0.6) !important;
+      -webkit-transform: scale(0.6) !important;
+      -moz-transform: scale(0.6) !important;
+      -ms-transform: scale(0.6) !important;
+      -o-transform: scale(0.6) !important;
+    }
+    .headingTxt{
+      transform: scale(0.6) !important;
+      left: 50px !important;
+      -webkit-transform: scale(0.6) !important;
+      -moz-transform: scale(0.6) !important;
+      -ms-transform: scale(0.6) !important;
+      -o-transform: scale(0.6) !important;
+    }
+
+    .theOnlyPlatformYouCanCompletelyRelyUponForEverythingRelatedToProgramming {
+      left: -100px !important;
+      transform: scale(0.8);
+      -webkit-transform: scale(0.8);
+      -moz-transform: scale(0.8);
+      -ms-transform: scale(0.8);
+      -o-transform: scale(0.8);
+}
+    .moreAboutUs {
+      left: 0px !important;
+    }
+
+    .exploreContainer {
+      left: -160px !important;
+      transform: scale(0.6);
+      top: -200px !important;
+      -webkit-transform: scale(0.6);
+      -moz-transform: scale(0.6);
+      -ms-transform: scale(0.6);
+      -o-transform: scale(0.6);
+    }
+    .group362 {
+      left: -100px !important;
+      transform: scale(0.6);
+      -webkit-transform: scale(0.6);
+      -moz-transform: scale(0.6);
+      -ms-transform: scale(0.6);
+      -o-transform: scale(0.6);
+    }
+    .group361 {
+      top: 900px !important;
+      left: -70px !important;
+      transform: scale(0.6);
+      -webkit-transform: scale(0.6);
+      -moz-transform: scale(0.6);
+      -ms-transform: scale(0.6);
+      -o-transform: scale(0.6);
+    }
+    .line6 {
+      top: 920px !important;
+      left: 0px !important;
+      }
+    .group360 {
+      top: 850px !important;
+      left: 50px !important;
+      transform: scale(0.4);
+      -webkit-transform: scale(0.4);
+      -moz-transform: scale(0.4);
+      -ms-transform: scale(0.4);
+      -o-transform: scale(0.4);
+}
+    .learnContainer{
+      left: -160px !important;
+      transform: scale(0.6);
+      top: 50px !important;
+      -webkit-transform: scale(0.6);
+      -moz-transform: scale(0.6);
+      -ms-transform: scale(0.6);
+      -o-transform: scale(0.6);
+}
+    .practiceContainer{
+      margin-top: 5px !important;
+      left: -160px !important;
+      transform: scale(0.6);
+      top: 300px !important;
+      -webkit-transform: scale(0.6);
+      -moz-transform: scale(0.6);
+      -ms-transform: scale(0.6);
+      -o-transform: scale(0.6);
+}
+
+.undrawsocialnetworkingnqk4{
+  left: -150px !important;
+  transform: scale(0.55) !important;
+  -webkit-transform: scale(0.55) !important;
+  -moz-transform: scale(0.55) !important;
+  -ms-transform: scale(0.55) !important;
+  -o-transform: scale(0.55) !important;
+}
+.group356 {
+  left: -130px !important;
+  transform: scale(0.55) !important;
+  -webkit-transform: scale(0.55) !important;
+  -moz-transform: scale(0.55) !important;
+  -ms-transform: scale(0.55) !important;
+  -o-transform: scale(0.55) !important;
+}
+    
+}
+@media only screen and (max-width: 480px){
+  .toggle {
+    left: 250px;
+  }
+    .logo {
+    left: 50px !important;
+    }
+    .checkbtn {
+      left: -680px;
+      }
+    .switch-container {
+        left: -950px;
+        right: 0px;
+        bottom: 0px;
+        top: -320px;
+    }
+    .logout-container {
+        left: -580px;
+        top: 240px;
+        right: 600px;
+    }
+    .headingDiv {
+      left: -180px !important;
+      transform: scale(0.45) !important;
+      -webkit-transform: scale(0.45) !important;
+      -moz-transform: scale(0.45) !important;
+      -ms-transform: scale(0.45) !important;
+      -o-transform: scale(0.45) !important;
+    }
+    .undrawpairprogrammingnjlp {
+      left: -120px !important;
+      transform: scale(0.5) !important;
+      -webkit-transform: scale(0.5) !important;
+      -moz-transform: scale(0.5) !important;
+      -ms-transform: scale(0.5) !important;
+      -o-transform: scale(0.5) !important;  
+
+    }
+    .undrawaboutmewa29{
+      left: -150px !important;
+      transform: scale(0.45) !important;
+      -webkit-transform: scale(0.45) !important;
+      -moz-transform: scale(0.45) !important;
+      -ms-transform: scale(0.45) !important;
+      -o-transform: scale(0.45) !important;
+    }
+    .headingTxt{
+      left: -20px !important;
+      transform: scale(0.6) !important;
+      -webkit-transform: scale(0.6) !important;
+      -moz-transform: scale(0.6) !important;
+      -ms-transform: scale(0.6) !important;
+      -o-transform: scale(0.6) !important;
+    }
+    .footer {
+      left: -230px !important;
+    }
+    .group363 {
+      margin-bottom:2em ;
+      left: 300px !important;
+      top: 350px !important;
+    }
+    .x2021AllRightsReserved {
+      top: 600px !important;
+    }
+    .stuckedWithProblemserrorsWhileProgramming{
+      font-size: 2em !important;
+      top: 60 !important;
+    }
+}
+
+@media only screen and (max-width: 380px){
+  .toggle {
+    left: 230px;
+  }
+  .checkbtn {
+    left: -750px;
+  }
+  .blocks ul{
+    padding-left: 0px !important;
+  }
+}

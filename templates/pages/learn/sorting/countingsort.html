@@ -1,0 +1,120 @@
+{% extends "pages/learn.html" %}
+{% load static %}
+{% block nav-countingsort %}
+
+<div>
+    <div class="content-div">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#description">Description</a></li>
+            <li><a data-toggle="tab" href="#sources">Sources</a></li>
+        </ul>
+
+        <div class="tab-content ">
+            <div id="description" class="tab-pane fade in active">
+                <h3><strong> Counting Sort : </strong></h3>
+                <p>In Counting sort, the frequencies of distinct elements of the array to be sorted is counted and stored in an auxiliary array, by mapping its value as an index of the auxiliary array.  </p>
+                <p><strong>Algorithm:</strong> </p>
+                <p>Let's assume that, array A of size N needs to be sorted.  </p>
+                <ul>
+                    <li>Initialize the auxillary array Aux[] as 0. <br />
+                        <strong>Note:</strong> The size of this array should be  \ge max(A[]) .    </li>
+                    <li>Traverse array A and store the count of occurrence of each element in the appropriate index of the Aux array, which means, execute <code>Aux[A[i]]++</code> for each i, where i ranges from [0, N-1].    </li>
+                    <li>Initialize the empty array sortedA[]  </li>
+                    <li>Traverse array Aux and copy i into sortedA for Aux[i] number of times where 0 \le i \le max(A[]).        </li>
+                </ul>
+                <p><strong>Note:</strong> The array A can be sorted by using this algorithm only if the maximum value in array A is less than the maximum size of the array Aux. Usually, it is possible to allocate memory up to the order of a million (10^6). If the maximum value of A exceeds the maximum memory- allocation size, it is recommended that you do not use this algorithm.</p>
+                <p><strong>Implementation:</strong> </p>
+                <p>Assume that the maximum element that can be in the array is K . <br />
+                    Now take an Aux[] array of size K +1.<br />
+                    A[ ] = Array to be sorted.<br />
+                    sortedA[ ] = Sorted version of A[ ].   </p>
+                <pre class="prettyprint"><code>void counting_sort(int A[], int Aux[], int sortedA[], int N) {
+
+    // First, find the maximum value in A[]
+    int K = 0;
+    for(int i=0; i&lt;N; i++) {
+        K = max(K, A[i]);
+    }
+
+    // Initialize the elements of Aux[] with 0
+    for(int i=0 ; i&lt;=K; i++) {
+        Aux[i] = 0;
+    }
+
+    // Store the frequencies of each distinct element of A[],
+    // by mapping its value as the index of Aux[] array
+    for(int i=0; i&lt;N; i++) {
+        Aux[A[i]]++;
+    }
+
+    int j = 0;
+    for(int i=0; i&lt;=K; i++) {
+        int tmp = Aux[i];
+        // Aux stores which element occurs how many times,
+        // Add i in sortedA[] according to the number of times i occured in A[]
+        while(tmp--) {
+            //cout &lt;&lt; Aux[i] &lt;&lt; endl;
+            sortedA[j] = i;
+            j++;
+        }
+    }
+}
+</code></pre>
+                <p>Example:<br />
+                    Say A = \{5, 2, 9, 5, 2, 3, 5\}.  </p>
+                <p>Aux will be of the size 9+1 i.e. 10     </p>
+                <p>Aux = \{0, 0, 2, 1, 0, 3, 0, 0, 0, 2\}.  <br />
+                    Notice that Aux[ 2 ] = 2 which represents the number of occurrences of 2 in A[]. Similarly Aux[5] = 3 which represents the number occurrences of 5 in A[].   </p>
+                <p>After applying the counting sort algorithm, sortedA[] will be \{2, 2, 3, 5, 5, 5, 9\}</p>
+                <p><strong>Time Complexity:</strong><br />
+                    The array A is traversed in O(N) time and the resulting sorted array is also computed in O(N) time. Aux[] is traversed in O(K) time. Therefore, the overall time complexity of counting sort algorithm is O(N+K).  </p>
+
+            </div>
+            <div id="sources" class="tab-pane fade space-div">
+                <p>
+                    <ul>
+                        <!-- Counting Sort: -->
+<li><a href="https://www.youtube.com/watch?v=pEJiGC-ObQE">counting sort 1</a></li>
+<li><a href="https://www.geeksforgeeks.org/counting-sort/">counting sort 2</a></li>
+
+                    </ul>
+                </p>
+              
+            </div>
+        </div>
+    </div>
+
+
+    <div class="psuedo-div space-div row" >
+        <h2>Code : </h2>
+
+        <p>
+        <pre><div class="code">   
+count = array of k+1 zeros
+    for x in input do
+        count[key(x)] += 1
+
+    total = 0
+    for i in 0, 1, ... k do
+        count[i], total = total, count[i] + total
+
+    output = array of the same length as input
+    for x in input do
+        output[count[key(x)]] = x,count[key(x)] += 1 
+
+    return output</div></pre>
+        </p>
+
+    </div>
+
+    <div class="time-div space-div row">
+        <h2>Time Complexity : </h2>
+        <pre>    
+            O(N+K)
+            </pre>
+    </div>
+
+</div>
+
+
+{% endblock %}

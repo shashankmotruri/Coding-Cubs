@@ -1,0 +1,296 @@
+{% extends "pages/learn.html" %}
+{% load static %}
+{% block nav-queue %}
+
+
+<div>
+    <div class="content-div">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#description">Description</a></li>
+            <li><a data-toggle="tab" href="#sources">Sources</a></li>
+        </ul>
+        
+        <div class="tab-content ">
+                <div id="description" class="tab-pane fade in active">
+                    <h3><strong> Queues : </strong></h3>
+                    <p>
+                    <p>Queues are data structures that follow the <strong>First In First Out (FIFO)</strong> i.e. the first element that is added to the queue is the first one to be removed. </p>
+                    <p>Elements are always added to the back and removed from the front. Think of it as a line of people waiting for a bus. The person who is at the beginning of the line is the first one to enter the bus.</p>
+                    <p><strong><em>Variables used</em></strong> </p>
+                    <ul>
+                        <li>queue[]: Array in which queue is simulated</li>
+                        <li>arraySize: Maximum number of elements that can be stored in a queue[]</li>
+                        <li>front: Points at the index where the next deletion will be performed</li>
+                        <li>rear: Points at the index where the next insertion will be performed</li>
+                    </ul>
+                    <p><strong><em>Functions supported</em></strong></p>
+                    <p>Queues support the following fundamental functions:</p>
+                    <p><strong>Enqueue</strong></p>
+                    <p>If the queue is not full, this function adds an element to the back of the queue, else it prints “<strong>OverFlow</strong>”.</p>
+                    <pre class="prettyprint"><code>void enqueue(int queue[], int element, int&amp; rear, int arraySize) {
+    if(rear == arraySize)            // Queue is full
+            printf(“OverFlow\n”);
+    else{
+         queue[rear] = element;    // Add the element to the back
+         rear++;
+    }
+}
+</code></pre>
+                    <p><strong>Dequeue</strong></p>
+                    <p>If the queue is not empty, this function removes the element from the front of the queue, else it prints “<strong>UnderFlow</strong>”.</p>
+                    <pre class="prettyprint"><code>void dequeue(int queue[], int&amp; front, int rear) {
+    if(front == rear)            // Queue is empty
+        printf(“UnderFlow\n”);
+    else {
+        queue[front] = 0;        // Delete the front element
+        front++;
+    }
+}
+</code></pre>
+                    <p><strong>Front</strong></p>
+                    <p>This function returns the front element of the queue.</p>
+                    <pre class="prettyprint"><code>int Front(int queue[], int front) {
+    return queue[front];
+}
+</code></pre>
+                    <p><strong><em>Support functions</em></strong></p>
+                    <p><strong>Size</strong></p>
+                    <p>This function returns the size of a queue or the number of elements in a queue.</p>
+                    <pre class="prettyprint"><code>int size(int front, int rear) {
+    return (rear - front);
+}
+</code></pre>
+                    <p><strong>IsEmpty</strong></p>
+                    <p>If a queue is empty, this function returns 'true', else it returns 'false'.</p>
+                    <pre class="prettyprint"><code>bool isEmpty(int front, int rear) {
+    return (front == rear);
+}
+</code></pre>
+                    <p></p><center>
+                    <img alt="enter image description here" src="https://he-s3.s3.amazonaws.com/media/uploads/cf1e1c1.png" />
+                </center><p></p>
+                    <p>Let us try a problem. </p>
+                    <p>You are given a string. Take the first character of the string and put it at the end of the string. </p>
+                    <p>Find out what the string will be after N steps. </p>
+                    <p>The string can be considered as a queue. At each step, dequeue the character from the front and enqueue it at the end. Repeat this process N times. </p>
+                    <p>Let us code this problem.</p>
+                    <pre class="prettyprint"><code>#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+
+using namespace std;
+
+void enqueue(char queue[], char element, int&amp; rear, int arraySize) {
+    if(rear == arraySize)            // Queue is full
+        printf("OverFlow\n");
+    else {
+        queue[rear] = element;    // Add the element to the back
+        rear++;
+    }
+}
+
+
+void dequeue(char queue[], int&amp; front, int rear) {
+    if(front == rear)            // Queue is empty
+        printf("UnderFlow\n");
+    else {
+        queue[front] = 0;        // Delete the front element
+        front++;
+    }
+}
+
+char Front(char queue[], int front) {
+    return queue[front];
+}
+
+
+int main() {
+    char queue[20] = {'a', 'b', 'c', 'd'};
+    int front = 0, rear = 4;
+    int arraySize = 20;                // Size of the array
+    int N = 3;                    // Number of steps
+    char ch;
+    for(int i = 0;i &lt; N;++i) {
+        ch = Front(queue, front);
+        enqueue(queue, ch, rear, arraySize);
+        dequeue(queue, front, rear);
+    }
+    for(int i = front;i &lt; rear;++i)
+        printf("%c", queue[i]);
+    printf("\n");
+    return 0;
+}
+</code></pre>
+                    <p><strong>Output</strong> </p>
+                    <p></p><pre class="prettyprint"><code>dabc
+</code></pre>
+                    <br /><p></p>
+                    <h2><strong>Queue variations</strong></h2>
+                    <p>The standard queue data structure has the following variations:</p>
+                    <ol>
+                        <li>Double-ended queue</li>
+                        <li>Circular queue</li>
+                    </ol>
+                    <p><strong>Double-ended queue</strong></p>
+                    <p>In a standard queue, a character is inserted at the back and deleted in the front. However, in a double-ended queue, characters can be inserted and deleted from both the front and back of the queue.</p>
+                    <p><strong><em>Functions supported</em></strong></p>
+                    <p>The following functions are supported by double-ended queues:</p>
+                    <p><strong>Insert at back</strong>
+                    </p><pre class="prettyprint"><code>void insert_at_back(int queue[], int element, int &amp;rear, int array_size){
+    if(rear == array_size)
+        printf("Overflow\n");
+    else{
+        queue[rear] = element;
+        rear = rear + 1;
+    }
+}
+</code></pre><p></p>
+                    <p><strong>Delete from back</strong></p>
+                    <pre class="prettyprint"><code>void delete_from_back(int queue[], int &amp;rear, int front){
+    if(front == rear)
+        printf("Underflow\n");
+    else{
+        rear = rear - 1;
+        queue[rear] = 0;
+    }
+}
+</code></pre>
+                    <p><strong>Insert at front</strong></p>
+                    <pre class="prettyprint"><code>void insert_at_front(int queue[], int &amp;rear, int &amp;front, int element, int array_size){
+    if(rear == array_size)
+        printf("Overflow\n");
+    else{
+        for(int i=rear; i&gt;front; i--)
+            queue[i] = queue[i-1];
+        queue[front] = element;
+        rear = rear+1;
+    }
+}
+</code></pre>
+                    <p><strong>Delete from front</strong></p>
+                    <pre class="prettyprint"><code>void delete_front_front(int queue[], int &amp;front, int &amp;rear){
+    if(front == rear)
+        printf("Underflow\n");
+    else{
+        queue[front] = 0;
+        front = front + 1;
+    }
+}
+</code></pre>
+                    <p><strong>Get front element</strong></p>
+                    <pre class="prettyprint"><code>int get_front(int queue[], int front){
+    return queue[front];
+}
+</code></pre>
+                    <p><strong>Get rear element</strong></p>
+                    <p></p><pre class="prettyprint"><code>int get_rear(int queue[], int rear){
+    return queue[rear-1];
+}
+</code></pre>
+                    <strong><em>Support functions</em></strong><p></p>
+                    <p><strong>Size</strong> and <strong>IsEmpty</strong> are implemented in the same way as in a standard queue.</p>
+                    <p><strong>Circular queues</strong></p>
+                    <p>A circular queue is an improvement over the standard queue structure. In a standard queue, when an element is deleted, the vacant space is not reutilized. However, in a circular queue, vacant spaces are reutilized.</p>
+                    <p>While inserting elements, when you reach the end of an array and you need to insert another element, you must insert that element at the beginning (given that the first element has been deleted and the space is vacant).</p>
+                    <p></p><center>
+                    <img alt="enter image description here" src="https://he-s3.s3.amazonaws.com/media/uploads/51fe410.png" />
+                </center><p></p>
+                    <p><strong><em>Variables used</em></strong></p>
+                    <p>In addition to all the variables that are used in a standard queue, circular queues support the following variable:</p>
+                    <p>count: Number of elements present in a queue</p>
+                    <p><strong><em>Functions supported</em></strong></p>
+                    <p>Circular queues support all the functions that are supported by standard queues, however, there is a difference in the implementation of these functions.  </p>
+                    <p><strong>Enqueue</strong></p>
+                    <pre class="prettyprint"><code>void enqueue(int queue[], int element, int&amp; rear, int arraySize, int&amp; count) {
+    if(count == arraySize)            // Queue is full
+            printf(“OverFlow\n”);
+    else{
+        queue[rear] = element;
+        rear = (rear + 1)%arraySize;
+        count = count + 1;
+    }
+}
+</code></pre>
+                    <p><strong>Dequeue</strong> </p>
+                    <pre class="prettyprint"><code>void dequeue(int queue[], int&amp; front, int rear, int&amp; count) {
+    if(count == 0)            // Queue is empty
+        printf(“UnderFlow\n”);
+    else {
+        queue[front] = 0;        // Delete the front element
+        front = (front + 1)%arraySize;
+        count = count - 1;
+    }
+}
+</code></pre>
+                    <p><strong>Front</strong></p>
+                    <pre class="prettyprint"><code>int Front(int queue[], int front) {
+    return queue[front];
+}
+</code></pre>
+                    <p><strong>Size</strong></p>
+                    <pre class="prettyprint"><code>int size(int count) {
+    return count;
+}
+</code></pre>
+                    <p><strong>IsEmpty</strong></p>
+                    <pre class="prettyprint"><code>bool isEmpty(int count) {
+    return (count == 0);
+}
+</code></pre>
+
+                </div>
+                <div id="sources" class="tab-pane fade space-div">
+
+                    <div>Youtube.com :
+                        <ul>
+                            <li><a href="https://www.youtube.com/watch?v=zp6pBNbUB2U">Queue - 1</a></li>
+                            <li><a href="https://www.youtube.com/watch?v=fbonDkYsKj0">Queue - 2</a></li>
+                        </ul>
+                    </div>
+
+
+                    <div> Static Resources :
+                        <ul>
+                            <li><a href="https://www.tutorialspoint.com/data_structures_algorithms/dsa_queue.htm">Tutorials Point</a></li>
+                            <li><a href="https://www.geeksforgeeks.org/queue-data-structure/">Geeksforgeeks</a></li>
+                        </ul>
+                    </div>
+                </div>
+        </div>
+    </div>
+        
+    
+        <div class="psuedo-div space-div row" >
+            <h2>Code : </h2>
+            <P><PRE>
+   Enqueue(Q,x)
+      if Queue-Full(Q)
+      then error "overflow"
+      else Q[tail(Q)] = x
+           if tail(Q) = length(Q) then tail(Q) = 1
+           else tail(Q) = tail(Q) + 1
+
+   Dequeue(Q)
+      if Queue-Empty(Q)
+      then error "underflow"
+      else x = Q[head(Q)]
+           if head(Q) = length(Q) then head(Q) = 1
+           else head(Q) = head(Q) + 1
+      return x
+</PRE>
+        </div>
+    
+        <div class="time-div space-div row">
+            <h2>Time Complexity : </h2>
+            <pre>           Average:
+                Search : O(n)
+                Insertion,Deletion : O(1)
+
+            Worst:
+                Search : O(n)
+                Insertion,Deletion : O(1)
+            </pre>
+        </div>
+    
+</div>
+
+{% endblock %}

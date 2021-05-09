@@ -1,0 +1,115 @@
+{% extends "pages/learn.html" %}
+{% load static %}
+{% block nav-tries %}
+
+<div>
+    <div class="content-div">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#description">Description</a></li>
+            <li><a data-toggle="tab" href="#sources">Sources</a></li>
+        </ul>
+
+        <div class="tab-content ">
+            <div id="description" class="tab-pane fade in active">
+                <h3><strong> Tries : </strong></h3>
+                <p>Strings can essentially be viewed as the most important and common topics for a variety of programming problems. String processing has a variety of real world applications too, such as:</p>
+                <ul>
+                    <li>Search Engines   </li>
+                    <li>Genome Analysis   </li>
+                    <li>Data Analytics  </li>
+                </ul>
+                <p>All the content presented to us in textual form can be visualized as nothing but just strings.  </p>
+                <p><strong>Tries:</strong> </p>
+                <p>Tries are an extremely special and useful data-structure that are based on the <em>prefix of a string</em>. They are used to represent the “Re<strong>trie</strong>val” of data and thus the name Trie.   </p>
+                <p><strong>Prefix : What is prefix:</strong> </p>
+                <p>The prefix of a string is nothing but any n letters n \le |S| that can be considered beginning strictly from the starting of a string. For example , the word “abacaba” has the following prefixes:  </p>
+                <p>a<br />
+                    ab<br />
+                    aba<br />
+                    abac<br />
+                    abaca<br />
+                    abacab  </p>
+                <p>A Trie is a special data structure used to store strings that can be visualized like a graph. It consists of nodes and edges. Each node consists of at max 26 children and edges connect each parent node to its children. These 26 pointers are nothing but pointers for each of the 26 letters of the English alphabet A separate edge is maintained for every edge.  </p>
+                <p>Strings are stored in a top to bottom manner on the basis of their prefix in a trie. All prefixes of length 1 are stored at until level 1, all prefixes of length 2 are sorted at until level 2 and so on.   </p>
+                <p>For example , consider the following diagram :
+                    <img width="680" alt="enter image description here" src="https://he-s3.s3.amazonaws.com/media/uploads/fb14630.png" /></p>
+                <p>Now, one would be wondering why to use a data structure such as a trie for processing a single string? Actually, Tries are generally used on groups of strings, rather than a single string. When given multiple strings , we can solve a variety of problems based on them. For example, consider an English dictionary and a single string s, find the prefix of maximum length from the dictionary strings matching the string s. Solving this problem using  a naive approach would require us to match the prefix of the given string with the prefix of every other word in the dictionary and note the maximum. The is an expensive process considering the amount of time it would take. Tries can solve this problem in much more efficient way.    </p>
+                <p>Before processing each Query of the type where we need to search the length of the longest prefix, we first need to add all the existing words into the dictionary.  A Trie consists of a special node called the root node. This node doesn't have any incoming edges. It only contains 26 outgoing edfes for each letter in the alphabet and is the root of the Trie.  </p>
+                <p>So, the insertion of any string into a Trie starts from the root node. All prefixes of length one are direct children of the root node. In addition, all prefixes of length 2 become children of the nodes existing at level one.  </p>
+                <p>The pseudo code for insertion of a string into a tire would look as follows:  </p>
+                <pre class="prettyprint"><code>void insert(String s)
+{
+    for(every char in string s)
+    {
+        if(child node belonging to current char is null)
+        {
+            child node=new Node();
+        }
+        current_node=child_node;
+    }
+}
+</code></pre>
+                <p>The pseudo code to check wether a single word exists in a dictionary of words or not is as follows:  </p>
+                <pre class="prettyprint"><code>boolean check(String s)
+{
+    for(every char in String s)
+    {
+        if(child node is null)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+</code></pre>
+            </div>
+            <div id="sources" class="tab-pane fade space-div">
+                <p>
+                    <ul>
+                        <!-- Tries: -->
+<li><a href="https://www.youtube.com/watch?v=AXjmTQ8LEoI">tries 1</a></li>
+<li><a href="https://www.youtube.com/watch?v=tUBFINxzlLg">tries 2</a></li>
+<li><a href="https://www.geeksforgeeks.org/trie-insert-and-search/">tries 3</a></li>
+
+
+                    </ul>
+                </p>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="psuedo-div space-div row" >
+        <h2>Code : </h2>
+
+        <p>
+            Let's see how to add a node to the linked list:
+        <pre><div class="code">
+def find(node: Node, key: str) -> Optional[Any]:
+    
+    for char in key:
+        if char in node.children:
+            node = node.children[char]
+        else:
+            return None
+    return node.value
+                </div>
+            </pre>
+        </p>
+
+    </div>
+
+    <div class="time-div space-div row">
+        <h2>Complexity : </h2>
+        <pre>
+        Time Complexity => O(mn)
+        Space Complexity => O(nk)
+            where k is K references for a single node    
+            </pre>
+    </div>
+
+</div>
+
+
+{% endblock %}

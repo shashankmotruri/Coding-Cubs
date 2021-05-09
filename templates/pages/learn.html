@@ -1,17 +1,119 @@
 {% extends "pages/index.html" %}
 <h1>{% block title %}Learn{% endblock %}</h1>
 {% block nav-learn %}
-<div>
-    <p>Learn</p>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-          nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-           Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
-           deserunt mollit anim id est laborum.
-    </p>
+<div class="back-rectangle">
+
+    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+    <div id="menu-content" class="nav-side-menu collapse in">
+
+          <div class="menu-list">
+
+              <ul class="menu-content">
+
+                  <li  data-toggle="collapse" data-target="#products" class="collapsed">
+                    <a href="#">Data Structures<span class="arrow"></span></a>
+                  </li>
+                  <ul class="sub-menu collapse" id="products">
+                      <li><a href="{% url 'linkedlist' %}">Linked List</a></li>
+                      <li><a href="{% url 'stack' %}">Stack</a></li>
+                      <li><a href="{% url 'queue' %}">Queue</a></li>
+                      <li><a href="{% url 'heap' %}">Heap</a></li>
+                      <li><a href="{% url 'hashing' %}">Hashing</a></li>
+                      <li><a href="{% url 'graph' %}">Graph</a></li>
+                  </ul>
+
+
+                  <li data-toggle="collapse" data-target="#service" class="collapsed">
+                    <a href="#">Searching<span class="arrow"></span></a>
+                  </li>  
+                  <ul class="sub-menu collapse" id="service">
+                    <li><a href="{% url 'linearsearch' %}">Linear Search</a></li>
+                    <li><a href="{% url 'binarysearch' %}">Binary Search</a></li>
+                  </ul>
+
+
+                  <li data-toggle="collapse" data-target="#new" class="collapsed">
+                    <a href="#">Sorting<span class="arrow"></span></a>
+                  </li>
+                  <ul class="sub-menu collapse" id="new">
+                    <li><a href="{% url 'selectionsort' %}">Selection Sort</a></li>
+                    <li><a href="{% url 'bubblesort' %}">Bubble Sort</a></li>
+                    <li><a href="{% url 'insertionsort' %}">Insertion Sort</a></li>
+                    <li><a href="{% url 'mergesort' %}">Merge Sort</a></li>
+                    <li><a href="{% url 'quicksort' %}">Quick Sort</a></li>
+                    <li><a href="{% url 'heapsort' %}">Heap Sort</a></li>
+                    <li><a href="{% url 'countingsort' %}">Counting Sort</a></li>
+                    <li><a href="{% url 'bucketsort' %}">Bucket Sort</a></li>
+                    <li><a href="{% url 'radixsort' %}">Radix Sort</a></li>
+                  </ul>
+
+                  <li data-toggle="collapse" data-target="#temp" class="collapsed">
+                    <a href="#">Trees<span class="arrow"></span></a>
+                  </li>
+                  <ul class="sub-menu collapse" id="temp">
+                    <li><a href="{% url 'binarytree' %}">Binary Tree</a></li>
+                    <li><a href="{% url 'binarysearchtree' %}">Binary Search Tree</a></li>
+                    <li><a href="{% url 'avltree' %}">AVL Tree</a></li>
+                    <li><a href="{% url 'redblacktree' %}">Red Black Tree</a></li>
+                    <li><a href="{% url 'bplustree' %}">B+ Tree</a></li>
+                    <li><a href="{% url 'tries' %}">Tries</a></li>
+                  </ul>
+
+
+                  <li data-toggle="collapse" data-target="#graph" class="collapsed">
+                    <a href="#">Graph<span class="arrow"></span></a>
+                  </li>
+                  <ul class="sub-menu collapse" id="graph">
+                    <li><a href="{% url 'bfs' %}">BFS (Breadth First Search)</a></li>
+                    <li><a href="{% url 'dfs' %}">DFS (Depth First Search)</a></li>
+                    <li><a href="{% url 'mst' %}">MST(Minimum Spanning Tree)</a></li>
+                    <li><a href="{% url 'dijkstra' %}">Dijkstra</a></li>
+                    <li><a href="{% url 'bellman_ford' %}">Bellman Ford</a></li>
+                    <li><a href="{% url 'floyd_warshall' %}">Floyd Warshall</a></li>
+                  </ul>
+
+              </ul>
+              <br /><br /><br /><br /><br /><br />
+      </div>
+    </div>
+
+
+    <div class="learn-container">
+      {% block nav-linkedlist %} {% endblock %}
+      {% block nav-stack %} {% endblock %}
+      {% block nav-queue %} {% endblock %}
+      {% block nav-heap %} {% endblock %}
+      {% block nav-hashing %} {% endblock %}
+      {% block nav-graph %} {% endblock %}
+     
+      {% block nav-linearsearch %} {% endblock %}
+      {% block nav-binarysearch %} {% endblock %}
+      
+      {% block nav-bubblesort %} {% endblock %}
+      {% block nav-bucketsort %} {% endblock %}
+      {% block nav-countingsort %} {% endblock %}
+      {% block nav-heapsort %} {% endblock %}
+      {% block nav-insertionsort %} {% endblock %}
+      {% block nav-mergesort %} {% endblock %}
+      {% block nav-quicksort %} {% endblock %}
+      {% block nav-radixsort %} {% endblock %}
+      {% block nav-selectionsort %} {% endblock %}
+      
+      {% block nav-avltree %} {% endblock %}
+      {% block nav-binarytree %} {% endblock %}
+      {% block nav-binarysearchtree %} {% endblock %}
+      {% block nav-bplustree %} {% endblock %}
+      {% block nav-redblacktree %} {% endblock %}
+      {% block nav-tries %} {% endblock %}
+      
+      {% block nav-bfs %} {% endblock %}
+      {% block nav-dfs %} {% endblock %}
+      {% block nav-mst %} {% endblock %}
+      {% block nav-bellman_ford %} {% endblock %}
+      {% block nav-dijkstra %} {% endblock %}
+      {% block nav-floyd_warshall %} {% endblock %}
+
+    </div>
 </div>
 {% endblock %}
 

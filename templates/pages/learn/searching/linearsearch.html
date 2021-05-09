@@ -1,0 +1,76 @@
+{% extends "pages/learn.html" %}
+{% load static %}
+{% block nav-linearsearch %}
+
+<div>
+    <div class="content-div">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#description">Description</a></li>
+            <li><a data-toggle="tab" href="#sources">Sources</a></li>
+        </ul>
+
+        <div class="tab-content ">
+            <div id="description" class="tab-pane fade in active">
+                <h3><strong> Linear Search : </strong></h3>
+                <p>Linear search is used on a collections of items. It relies on the technique of traversing a list from start to end by exploring properties of all the elements that are found on the way. </p>
+                <p>For example, consider an array of integers of size N. You should find and print the position of all the elements with value x. Here, the linear search is based on the idea of matching each element from the beginning of the list to the end of the list with the integer x, and then printing the position of the element if the condition is `True'.</p>
+                <p><strong>Implementation:</strong></p>
+                <p>The pseudo code for this example is as follows :</p>
+                <pre class="prettyprint"><code>for(start to end of array)
+{
+    if (current_element equals to 5)
+    {
+        print (current_index);
+    }
+}
+</code></pre>
+                <p><strong>For example, consider the following image:</strong> </p>
+                <p><img width="680" alt="enter image description here" src="https://he-s3.s3.amazonaws.com/media/uploads/f0fdd3b.png" /></p>
+                <p>If you want to determine the positions of the occurrence of the number 7 in this array. To determine the positions, every element in the array from start to end, i.e.,  from index 1 to index 10 will be compared with number 7, to check which element matches the number 7. </p>
+                <p><strong>Time Complexity:</strong></p>
+                <p>The time complexity of the linear search is O(N) because each element in an array is compared only once.</p>
+                </p>
+
+            </div>
+            <div id="sources" class="tab-pane fade space-div">
+                <p>
+                    <ul>
+                        <!-- Linear Search: -->
+<li><a href="https://www.tutorialspoint.com/data_structures_algorithms/linear_search_algorithm.htm">linear search 1</a></li>
+<li><a href="https://www.youtube.com/watch?v=C46QfTjVCNU">linear search 2</a></li>
+<li><a href="https://www.youtube.com/watch?v=4GPdGsB3OSc">linear search 3</a></li>
+
+                    </ul>
+                </p>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="psuedo-div space-div row" >
+        <h2>Code : </h2>
+
+        <p>
+        <pre><div class="code">
+for(start to end of array)
+    if (current_element equals to req_element)
+        print (current_index)
+                </div>
+            </pre>
+        </p>
+
+    </div>
+
+    <div class="time-div space-div row">
+        <h2>Time Complexity : </h2>
+        <pre>    
+            Worst : 
+                O(n)
+            </pre>
+    </div>
+
+</div>
+
+
+{% endblock %}

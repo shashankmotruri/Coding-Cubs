@@ -1,0 +1,110 @@
+{% extends "pages/learn.html" %}
+{% load static %}
+{% block nav-dijkstra %}
+
+<div>
+    <div class="content-div">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#description">Description</a></li>
+            <li><a data-toggle="tab" href="#sources">Sources</a></li>
+        </ul>
+
+        <div class="tab-content ">
+            <div id="description" class="tab-pane fade in active">
+                <h3><strong>Dijkstra Algorithm : </strong></h3>
+                <p>Dijkstra's algorithm has many variants but the most common one is to find the shortest paths from the source vertex to all other vertices in the graph.  </p>
+                <p><strong>Algorithm Steps:</strong> </p>
+                <ul>
+                    <li>Set all vertices distances = infinity except for the source vertex, set the source distance = 0.  </li>
+                    <li>Push the source vertex in a min-priority queue in the form (distance , vertex), as the comparison in the min-priority queue will be according to vertices distances.  </li>
+                    <li>Pop the vertex with the minimum distance from the priority queue (at first the popped vertex = source).   </li>
+                    <li>Update the distances of the connected vertices to the popped vertex in case of "current vertex distance + edge weight &lt; next vertex distance", then push the vertex<br />
+                        with the new distance to the priority queue.   </li>
+                    <li>If the popped vertex is visited before, just continue without using it.      </li>
+                    <li>Apply the same algorithm again until the priority queue is empty.  </li>
+                </ul>
+                <p><strong>Implementation:</strong> </p>
+                <p>Assume the source vertex = 1.</p>
+                <pre class="prettyprint"><code>#define SIZE 100000 + 1
+
+vector &lt; pair &lt; int , int &gt; &gt; v [SIZE];   // each vertex has all the connected vertices with the edges weights
+int dist [SIZE];
+bool vis [SIZE];
+
+void dijkstra(){
+                                                // set the vertices distances as infinity
+    memset(vis, false , sizeof vis);            // set all vertex as unvisited
+    dist[1] = 0;
+    multiset &lt; pair &lt; int , int &gt; &gt; s;          // multiset do the job as a min-priority queue
+
+    s.insert({0 , 1});                          // insert the source node with distance = 0
+
+    while(!s.empty()){
+
+        pair &lt;int , int&gt; p = *s.begin();        // pop the vertex with the minimum distance
+        s.erase(s.begin());
+
+        int x = p.s; int wei = p.f;
+        if( vis[x] ) continue;                  // check if the popped vertex is visited before
+         vis[x] = true;
+
+        for(int i = 0; i &lt; v[x].size(); i++){
+            int e = v[x][i].f; int w = v[x][i].s;
+            if(dist[x] + w &lt; dist[e]  ){            // check if the next vertex distance could be minimized
+                dist[e] = dist[x] + w;
+                s.insert({dist[e],  e} );           // insert the next vertex with the updated distance
+            }
+        }
+    }
+}
+</code></pre>
+                <p>Time Complexity of Dijkstra's Algorithm is O(V ^ 2) but with min-priority queue it drops down to O(V + ElogV).   </p>
+            </div>
+            <div id="sources" class="tab-pane fade space-div">
+                <p>
+                    <ul>
+                        <!-- Dijkstra: -->
+<li><a href="https://www.youtube.com/watch?v=smHnz2RHJBY">dijkstra 1</a></li>
+<li><a href="https://www.youtube.com/watch?v=XB4MIexjvY0">dijkstra 2</a></li>
+<li><a href="https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/">dijkstra 3</a></li>
+<li><a href="https://www.geeksforgeeks.org/dijkstras-algorithm-for-adjacency-list-representation-greedy-algo-8/">dijkstra 4</a></li>
+                    </ul>
+                </p>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="psuedo-div space-div row" >
+        <h2>Code : </h2>
+        <pre><div class="code">function Dijkstra(Graph, source):
+create vertex set Q
+for each vertex v in Graph:            
+    dist[v] ← INFINITY ,prev[v] ← UNDEFINED ,add v to Q                     
+dist[source] ← 0                       
+
+while Q is not empty:
+    u ← vertex in Q with min dist[u]                       
+    remove u from Q
+    for each neighbor v of u:          
+        alt ← dist[u] + length(u, v)
+        if alt < dist[v]: dist[v] ← alt prev[v] ← u
+
+return dist[], prev[]
+        </pre>
+        
+
+    </div>
+
+    <div class="time-div space-div row">
+        <h2>Time Complexity : </h2>
+        <pre>    
+            O(V ^ 2)  ,    but with min-priority queue it drops down to O(V + ElogV)
+            </pre>
+    </div>
+
+</div>
+
+
+{% endblock %}

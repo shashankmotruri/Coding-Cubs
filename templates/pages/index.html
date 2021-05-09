@@ -1,85 +1,127 @@
 {% load static %}
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}Home{% endblock %}</title>
         <link rel="stylesheet" href="{% static 'css/header.css' %}" type="text/css" />
         <link rel="stylesheet" href="{% static 'css/home.css' %}" type="text/css" />
         <link rel="stylesheet" href="{% static 'css/footer.css' %}" type="text/css" />
+        <link rel="stylesheet" href="{% static 'css/explore.css' %}" type="text/css" />
+        <link rel="stylesheet" href="{% static 'css/message.css' %}" type="text/css" />
+        <link rel="stylesheet" href="{% static 'css/learn.css' %}" type="text/css" />
         <link rel="stylesheet" href="{% static 'css/index.css' %}" type="text/css" />
-        
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="{% static 'css/practice.css' %}" type="text/css" />
 
+        <link rel="stylesheet" href="{% static 'css/media.css' %}" type="text/css" />
+
+        <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+        <script src="{% static 'js/index.js' %}" type="application/javascript"></script>
+        <script src="{% static 'js/learn.js' %}" type="application/javascript"></script>
+        <script src="{% static 'js/darkmode.js' %}" type="application/javascript"></script>
     </head>
     <body>
+    <div>
         {% if user.is_authenticated %}
         {% block content %}
-        <div class="header">
-            <div class="rectangle">
-                <svg preserveAspectRatio="none" viewBox="-0.75 -0.7499999884090736 90.8916015625 31.613616943359375" class="logo"><path d="M 73.48294067382813 28.96516799926758 C 72.08877563476563 28.19907188415527 70.91333770751953 27.14411735534668 69.95555114746094 25.80030632019043 C 68.99885559082031 24.45649719238281 68.26422119140625 22.87685966491699 67.75383758544922 21.06278419494629 C 67.24344635009766 19.24871253967285 66.98825836181641 17.29369926452637 66.98825836181641 15.19774723052979 C 66.98825836181641 13.04737186431885 67.24344635009766 11.05189228057861 67.75383758544922 9.211305618286133 C 68.26422119140625 7.370718479156494 68.99885559082031 5.764566421508789 69.95555114746094 4.394243240356445 C 70.91333770751953 3.02392053604126 72.08877563476563 1.948035478591919 73.48294067382813 1.169379591941833 C 74.87599182128906 0.3893280327320099 76.44580841064453 1.159092644087423e-08 78.19016265869141 1.159092644087423e-08 C 79.95552062988281 1.159092644087423e-08 81.52973937988281 0.3893280327320099 82.91285705566406 1.169379591941833 C 84.29596710205078 1.948035478591919 85.46588134765625 3.02392053604126 86.42366790771484 4.394243240356445 C 87.3814697265625 5.764566421508789 88.11500549316406 7.370718479156494 88.62538146972656 9.211305618286133 C 89.13687133789063 11.05189228057861 89.39206695556641 13.04737186431885 89.39206695556641 15.19774723052979 C 89.39206695556641 17.29369926452637 89.13687133789063 19.24871253967285 88.62538146972656 21.06278419494629 C 88.11500549316406 22.87685966491699 87.3814697265625 24.45649719238281 86.42366790771484 25.80030632019043 C 85.46588134765625 27.14411735534668 84.29596710205078 28.19907188415527 82.91285705566406 28.96516799926758 C 81.52973937988281 29.73126411437988 79.95552062988281 30.11361694335938 78.19016265869141 30.11361694335938 C 76.44580841064453 30.11361694335938 74.87599182128906 29.73126411437988 73.48294067382813 28.96516799926758 Z M 49.25964736938477 28.96516799926758 C 47.8665885925293 28.19907188415527 46.69005966186523 27.14411735534668 45.73337173461914 25.80030632019043 C 44.77557754516602 24.45649719238281 44.04204177856445 22.87685966491699 43.53054809570313 21.06278419494629 C 43.02016830444336 19.24871253967285 42.76497650146484 17.29369926452637 42.76497650146484 15.19774723052979 C 42.76497650146484 13.04737186431885 43.02016830444336 11.05189228057861 43.53054809570313 9.211305618286133 C 44.04204177856445 7.370718479156494 44.77557754516602 5.764566421508789 45.73337173461914 4.394243240356445 C 46.69005966186523 3.02392053604126 47.8665885925293 1.948035478591919 49.25964736938477 1.169379591941833 C 50.65270233154297 0.3893280327320099 52.22251892089844 1.159092644087423e-08 53.96687698364258 1.159092644087423e-08 C 55.13678359985352 1.159092644087423e-08 56.27022171020508 0.2218751460313797 57.36611557006836 0.6656253337860107 C 58.46199798583984 1.107980132102966 59.45072555541992 1.759650945663452 60.33340072631836 2.620638132095337 C 61.21717834472656 3.48022985458374 61.94519805908203 4.542160511016846 62.51964950561523 5.805034637451172 C 63.09411239624023 7.06790828704834 63.44541168212891 8.519166946411133 63.57355880737305 10.15880966186523 L 58.78568649291992 10.15880966186523 C 58.4885139465332 8.545680046081543 57.91405868530273 7.337228775024414 57.06231307983398 6.53066349029541 C 56.21167755126953 5.724099159240723 55.17986679077148 5.320816516876221 53.96687698364258 5.320816516876221 C 52.83895111083984 5.320816516876221 51.88226699829102 5.597113609313965 51.0945930480957 6.148313045501709 C 50.30802536010742 6.698116302490234 49.66949844360352 7.437700271606445 49.18010711669922 8.364273071289063 C 48.69071197509766 9.292242050170898 48.33388900756836 10.34719467163086 48.11073303222656 11.52913284301758 C 47.88758087158203 12.71246719360352 47.77600479125977 13.93487358093262 47.77600479125977 15.19774723052979 C 47.77600479125977 16.40759468078613 47.88758087158203 17.58255577087402 48.11073303222656 18.72542381286621 C 48.33388900756836 19.86689376831055 48.69071197509766 20.89533233642578 49.18010711669922 21.80934524536133 C 49.66949844360352 22.72336006164551 50.30802536010742 23.45596694946289 51.0945930480957 24.00577163696289 C 51.88226699829102 24.55697059631348 52.83895111083984 24.8332691192627 53.96687698364258 24.8332691192627 C 55.62617492675781 24.8332691192627 56.90876007080078 24.30160331726074 57.81242370605469 23.23967552185059 C 58.71718597412109 22.17913818359375 59.2430419921875 20.63996696472168 59.39216995239258 18.62495040893555 L 54.35021591186523 18.62495040893555 L 54.35021591186523 13.90836048126221 L 63.92375946044922 13.90836048126221 L 63.92375946044922 29.46892356872559 L 60.73331451416016 29.46892356872559 L 60.22182464599609 26.20358848571777 C 59.32810592651367 27.65484809875488 58.33937835693359 28.66933631896973 57.25453567504883 29.24704551696777 C 56.16859436035156 29.82475852966309 55.07381057739258 30.11361694335938 53.96687698364258 30.11361694335938 C 52.22251892089844 30.11361694335938 50.65270233154297 29.73126411437988 49.25964736938477 28.96516799926758 Z M 24.42987060546875 28.96516799926758 C 23.03681182861328 28.19907188415527 21.86138534545898 27.14411735534668 20.90358924865723 25.80030632019043 C 19.9468994140625 24.45649719238281 19.21225929260254 22.87685966491699 18.70187377929688 21.06278419494629 C 18.19149208068848 19.24871253967285 17.93630027770996 17.29369926452637 17.93630027770996 15.19774723052979 C 17.93630027770996 13.04737186431885 18.19149208068848 11.05189228057861 18.70187377929688 9.211305618286133 C 19.21225929260254 7.370718479156494 19.9468994140625 5.764566421508789 20.90358924865723 4.394243240356445 C 21.86138534545898 3.02392053604126 23.03681182861328 1.948035478591919 24.42987060546875 1.169379591941833 C 25.82402992248535 0.3893280327320099 27.39273834228516 1.159092644087423e-08 29.13820457458496 1.159092644087423e-08 C 30.9035530090332 1.159092644087423e-08 32.477783203125 0.3893280327320099 33.86089706420898 1.169379591941833 C 35.24401473999023 1.948035478591919 36.41391372680664 3.02392053604126 37.37171173095703 4.394243240356445 C 38.32950973510742 5.764566421508789 39.06304550170898 7.370718479156494 39.57342910766602 9.211305618286133 C 40.08381271362305 11.05189228057861 40.34010314941406 13.04737186431885 40.34010314941406 15.19774723052979 C 40.34010314941406 17.29369926452637 40.08381271362305 19.24871253967285 39.57342910766602 21.06278419494629 C 39.06304550170898 22.87685966491699 38.32950973510742 24.45649719238281 37.37171173095703 25.80030632019043 C 36.41391372680664 27.14411735534668 35.24401473999023 28.19907188415527 33.86089706420898 28.96516799926758 C 32.477783203125 29.73126411437988 30.9035530090332 30.11361694335938 29.13820457458496 30.11361694335938 C 27.39273834228516 30.11361694335938 25.82402992248535 29.73126411437988 24.42987060546875 28.96516799926758 Z M 0 29.46892356872559 L 0 0.6851614713668823 L 5.011029243469238 0.6851614713668823 L 5.011029243469238 24.1467113494873 L 16.11681938171387 24.1467113494873 L 16.11681938171387 29.46892356872559 L 0 29.46892356872559 Z"  /></svg>
-                {% block nav%}
-                <nav role="full-horizontal">
-                    <ul>
-                        <li  class="{{ home_page }}"><a href="{% url 'home' %}">Home</a></li>
-                        <li class="{{ explore_page }}"><a href="{% url 'explore' %}">Explore</a></li>
-                        <li><a href="{% url 'learn' %}">Learn</a></li>
-                        <li><a href="{% url 'practice' %}">Practice</a></li>
-                        <li><a href="{% url 'discuss' %}">Discuss</a></li>
-                        <form method="post" action="{% url 'account_logout' %}">
-                            {% csrf_token %}
-                            {% if redirect_field_value %}
-                                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-                            {% endif %}
-                                <div class="loginBtn">
-                                   <button type="submit" class="rectangle120"><div class="logIn">Log out</div></button></a>
-                                </div>
-                        </form>
-                    </ul>
-                </nav>
-                {% endblock %}
+        <div class="navigation-wrap bg-light start-header start-style">
+            <div class="container">
+            <div class="row">
+                <div class="col-12">
+                        <nav class="navbar navbar-expand-md navbar-light">
+                
+                            <img src="{% static 'images/WebsiteLogo.png' %}" alt="logo" width="65" height="50"/>
+                            
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                            </button>
+                    
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                        <ul class="navbar-nav ml-auto py-4 py-md-0">
+                                            <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                            <a class="nav-link" href="{% url 'home' %}">Home</a>
+                                            </li>
+                                            <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                            <a class="nav-link" href="{% url 'explore' %}">Explore</a>
+                                            </li>
+                                            <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                            <a class="nav-link" href="{% url 'learn' %} ">Learn</a>
+                                            </li>
+                                            <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                            <a class="nav-link" href="{% url 'practice' %}">Practice</a>
+                                            </li>
+                                            <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                            <a class="nav-link" href="{% url 'quiz' %}">Take a Quiz</a>
+                                            </li>
+                                            <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                                <a data-toggle="modal" data-target=".bd-example-modal-sm" class="logout-btn btn-5">Log Out</a>    
+                                            </li>
+                                        </ul>
+                            </div>
+                    
+                        </nav>    
+                </div>
             </div>
-         
+            </div>
         </div>
-        <div class="container" style="margin-top: 80px">
+
+
+                         
+      <!-- Progress Bar Loading Page -->
+        <div class="container">
+            <div id="progressive">
+                <div>
+                    <h1 class="loadFont text-center">Please Wait...</h1>
+                </div>
+                <div class="progress" id="shadow" >
+                    <div class="progress-bar progress-bar-danger six-sec-ease-in-out" role="progressbar" data-transitiongoal="100"></div>
+                </div>
+            </div>
+        </div>
+      
+        <div id="nav-container" class="container" style="margin-top: 100px">
+
+            <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <p class="modal-title" id="exampleModalLongTitle" style="padding: 15px; padding-left: 10px;">Are You Sure Want to Log Out ?</p>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <div style="float: right;">
+                        <form method="post" action="{% url 'account_logout' %}">
+                        {% csrf_token %}
+                        {% if redirect_field_value %}
+                            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                        {% endif %}
+                            <button type="submit"  class="btn btn-primary" >Log out</button></a>
+                        </form>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+
             {% block nav-home %} {% endblock %}
             {% block nav-explore %} {% endblock %}
             {% block nav-learn %} {% endblock %}
             {% block nav-practice %} {% endblock %}
-            {% block nav-discuss %} {% endblock %}
+            {% block nav-quiz %} {% endblock %}
+            
         </div>
 
-        <div class="footer">            
-            <div class="rectangle68"></div>
-            <div class="codingCubs">Coding Cubs</div>
-            <div class="group363">                
-                <div class="aboutUs">About us</div>
-                <div class="contactUs">Contact Us</div>
-                <div class="faq">FAQ</div>
-                <div class="reviews">Reviews</div>
-            </div>
-            <div class="x2021AllRightsReserved">© 2021 all rights reserved</div>
-            <div class="email">                
-                <div class="box">                    
-                    <div class="rectangle11"></div>
-                    <div class="enterYourEmailAddress">Enter your email address</div>
-                </div>
-
-                <div class="send">                    
-                    <div class="rectangle37"></div>
-                    <div class="send7f2d4f5b">Send</div>
-                </div>
-
-                <div class="interestedToWorkWithUs">Interested To Work With Us</div>
-            </div>
        
-        </div>
-        
+    
 
         {% endblock content %}
         {% else %}
         <meta http-equiv="REFRESH" content="0;url=http://127.0.0.1:8000">
         {% endif %}
+    </div>
     </body>
+  
 </html>
