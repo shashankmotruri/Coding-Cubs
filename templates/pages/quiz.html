@@ -1,36 +1,15 @@
 {% extends "pages/index.html" %}
 <h1>{% block title %}Quiz{% endblock %}</h1>
 {% block nav-quiz %}
-<head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script>
-    $(document).ready(function(){
-        $("#but1").click(function(){
-            $(".rb").show();
-            $(".rb").attr("disabled",true);
-        });
-    });
-    function getAnswers(){
-        document.getElementById(UserAnswers).innerHTML="";
-        var e=document.getElementByTagName('input');
-        for(i=0;i<=e.length;i++){
-            if(e[i].type=="radio"){
-                if(e[i].checked){
-                    document.getElementById(UserAnswers).innerHTML+="Q "+e[i].name+ "The answer you selected is :" +e[i].value+<br/>;
-                }
-            }
-        }
-    }
-</script>
-</head>
-<div style="padding-left: 30px;">
+<div style="padding-left: 30px;" class="card">
+       
         {% for result in quiz %}
-        <table>
+        <table class="table table-striped table-hover"> 
             <tr>
-                <td>{{ result.id }} {{ result.Question }}</td>
+                <th>{{ result.id }} {{ result.Question }}</th>
             </tr>
             <tr>
-                <td><input type="radio" class="rb" id="Option1" name="{{result.id}}" value="{{result.Option1}}">{{result.Option1}}</td>
+                <td><input type="radio" class="form-check-input" class="rb" id="Option1" name="{{result.id}}" value="{{result.Option1}}">{{result.Option1}}</td>
             </tr>
             <tr>
                 <td><input type="radio" class="rb" id="Option2" name="{{result.id}}" value="{{result.Option2}}">{{result.Option2}}</td>
@@ -47,7 +26,6 @@
         </table>
         {% endfor %}
     <hr/>
-    <input type="submit" value="Click for results" id="but1" onclick="getAnswers();"/>
-    <b id="UserAnswers"></b>
-    </div>
+    <input type="submit" class="btn btn-primary"value="Click for results" id="but1" onclick="getAnswers();"/>
+</div>
 {% endblock %}

@@ -17,7 +17,7 @@ def explore_page(request):
 
 def learn(request):
     context = {"learn_page" : "active"}
-    return render(request, 'pages/learn.html',context)
+    return render(request, 'pages/learn',context)
 
 def practice_page(request):
     context = {"practice_page" : "active"}

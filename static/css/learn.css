@@ -89,16 +89,15 @@
   -ms-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
 }
-.fa-bars {
-  position: fixed;
-  top: 120px;
-}
-
 @media (max-width: 767px) {
   .nav-side-menu {
+    position: relative;
     margin-bottom: 10px;
+    top: -25px;
+    left: -20px;  
   }
   .fa {
+    position: relative;
     z-index: 9;
   }
   .nav-side-menu .toggle-btn {
@@ -240,6 +239,9 @@ pre {
 @media only screen and (max-width: 750px) {
   .learn-container{
     left: 0px !important;
+  }
+  .nav-side-menu{
+    z-index: 99 !important;
   }
   .toggle-btn{
     z-index: 999 !important;
